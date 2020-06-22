@@ -29,7 +29,12 @@ class Header extends Component {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-Navbar-nav" />
           <Navbar.Collapse id="basic-Navbar-nav">
-            <Nav className="mr-auto"></Nav>
+            <Nav className="mr-auto">
+              <Nav.Link href="#home" style={{ color: "white" }}>
+                Home
+              </Nav.Link>
+            </Nav>
+
             <Form inline onSubmit={this.handleSubmit}>
               <FormControl
                 type="text"
@@ -41,7 +46,6 @@ class Header extends Component {
               <Button variant="outline-light" type="submit">
                 Search
               </Button>
-              <Button variant="primary m-2">Home</Button>
             </Form>
           </Navbar.Collapse>
         </Navbar>
