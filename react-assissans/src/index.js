@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import Navbar from "./components/navbar";
+import Main from 'components/main';
 
 ReactDOM.render(
   <React.StrictMode>
