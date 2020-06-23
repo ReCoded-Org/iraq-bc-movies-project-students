@@ -6,6 +6,19 @@ class Main extends Component {
         return (
             <>
             <p>Main Component</p>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            
             </>
           );
     }
