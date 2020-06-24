@@ -1,25 +1,14 @@
 import React, { Component } from "react";
-import { Button, Navbar, Nav, Form, FormControl } from "react-bootstrap";
-
+import { Button, Navbar, Nav, Form, FormControl,Spinner } from "react-bootstrap";
+import Search from './Search.js';
 class Header extends Component {
   constructor(props) {
     super(props);
-    this.state = { value: "" };
+    this.state = { isLoading:false};
     this.baseState = this.state;
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({ value: event.target.value });
-  }
 
-  handleSubmit(event) {
-    console.log("A name was submitted: " + this.state.value);
-    event.preventDefault();
-    this.setState(this.baseState);
-  }
   render() {
     return (
       <div>
@@ -35,18 +24,10 @@ class Header extends Component {
               </Nav.Link>
             </Nav>
 
-            <Form inline onSubmit={this.handleSubmit}>
-              <FormControl
-                type="text"
-                placeholder="Search"
-                className="mr-sm-2"
-                value={this.state.value}
-                onChange={this.handleChange}
-              />
-              <Button variant="outline-light" type="submit">
-                Search
-              </Button>
-            </Form>
+            {  this.state.isLoading && <Spinner animation="border" variant="primary"/>}
+
+<Search></Search>
+        
           </Navbar.Collapse>
         </Navbar>
       </div>
