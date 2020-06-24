@@ -1,4 +1,4 @@
-import { Navbar, Nav, Row, Col } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import React, { useState } from "react";
 function navBar() {
   return (
@@ -17,6 +17,10 @@ function navBar() {
 function SearchBox() {
   const [value, setValue] = useState("");
 
+  const handleChange = (event) => {
+    setValue(event.target.value);
+    console.log(moviesData(value));
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
     moviesData(value);
@@ -28,7 +32,7 @@ function SearchBox() {
         type="search"
         placeholder="Search for a Movie"
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={handleChange}
       ></input>
       <button className=" btn btn-primary ml-3" type="submit">
         Search
@@ -45,4 +49,3 @@ function moviesData(Searchquery) {
     .then((movies) => movies.json())
     .then((movieData) => console.log(movieData.results));
 }
-moviesData();
