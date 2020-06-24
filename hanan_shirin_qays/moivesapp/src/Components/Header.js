@@ -1,13 +1,29 @@
 import React, { Component } from "react";
-import { Button, Navbar, Nav, Form, FormControl,Spinner } from "react-bootstrap";
-import Search from './Search.js';
+import {
+  Button,
+  Navbar,
+  Nav,
+  Form,
+  FormControl,
+  Spinner,
+} from "react-bootstrap";
+import Search from "./Search.js";
 class Header extends Component {
   constructor(props) {
     super(props);
-    this.state = { isLoading:false};
+    this.state = { value:'',isLoading: false };
     this.baseState = this.state;
+    this.handleChange = this.handleChange.bind(this);
+
   }
 
+
+  handleChange(event) {
+    console.log(this.state);
+    
+      this.setState({ ...this.state,value:event.target.value,
+        isLoading: true });
+    }  
 
   render() {
     return (
@@ -24,10 +40,11 @@ class Header extends Component {
               </Nav.Link>
             </Nav>
 
-            {  this.state.isLoading && <Spinner animation="border" variant="primary"/>}
+            {this.state.isLoading && (
+              <Spinner animation="border" variant="primary" />
+            )}
 
-<Search></Search>
-        
+            <Search onChange={this.handleChange}  ></Search>
           </Navbar.Collapse>
         </Navbar>
       </div>
