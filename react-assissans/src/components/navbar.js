@@ -1,11 +1,10 @@
-import { Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav, Row, Col } from "react-bootstrap";
 import React, { useState } from "react";
 function navBar() {
   return (
     <>
       <Navbar bg="dark">
         <Navbar.Brand href="#">Assassins Movies</Navbar.Brand>
-
         <Nav>
           <Nav.Link href="#home">Home</Nav.Link>
         </Nav>
@@ -31,7 +30,9 @@ function SearchBox() {
         value={value}
         onChange={(e) => setValue(e.target.value)}
       ></input>
-      <button type="submit">Search</button>
+      <button className=" btn btn-primary ml-3" type="submit">
+        Search
+      </button>
     </form>
   );
 }
