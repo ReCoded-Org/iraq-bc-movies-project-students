@@ -50,6 +50,6 @@ function moviesData(Searchquery) {
     `https://api.themoviedb.org/3/search/movie/?api_key=1d54e327869a62aba4dc1b58c2b30233&query=${Searchquery}`
   )
     .then((movies) => movies.json())
-    .then((movieData) => console.log(movieData));
+    .then((movieData) => console.log(movieData.results));
 }
 moviesData();
