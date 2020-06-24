@@ -5,9 +5,11 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import Navbar from "./components/navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Main from "./components/main";
 ReactDOM.render(
   <React.StrictMode>
     <Navbar />
+    <Main />
   </React.StrictMode>,
   document.getElementById("root")
 );
