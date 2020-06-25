@@ -1,5 +1,7 @@
 import { Navbar, Nav } from "react-bootstrap";
 import React, { useState } from "react";
+import Spinner from "./Spinner";
+
 function navBar() {
   return (
     <>
@@ -8,13 +10,27 @@ function navBar() {
         <Nav>
           <Nav.Link href="#home">Home</Nav.Link>
         </Nav>
-        <SearchBox></SearchBox>
+        <Spinner />
+        <SearchBox />
       </Navbar>
     </>
   );
 }
+//function onSearch(props) {
+// const []
+//}
+const Search = () => {
+  const [showResults, setShowResults] = React.useState(false);
+  const onClick = () => setShowResults(true);
+  return (
+    <div>
+      <input type="submit" value="Search" onClick={onClick} />
+      {showResults ? <Results /> : null}
+    </div>
+  );
+};
 
-function SearchBox() {
+function SearchBox(props) {
   const [value, setValue] = useState("");
 
   const handleChange = (event) => {
