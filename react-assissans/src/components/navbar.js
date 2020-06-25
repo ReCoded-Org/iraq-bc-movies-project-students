@@ -1,23 +1,42 @@
 import { Navbar, Nav } from "react-bootstrap";
 import React, { useState } from "react";
+import Spinner from "./Spinner";
+
 function navBar() {
   return (
     <>
       <Navbar bg="dark">
         <Navbar.Brand href="#">Assassins Movies</Navbar.Brand>
-
         <Nav>
           <Nav.Link href="#home">Home</Nav.Link>
         </Nav>
-        <SearchBox></SearchBox>
+        <Spinner />
+        <SearchBox />
       </Navbar>
     </>
   );
 }
+//function onSearch(props) {
+// const []
+//}
+const Search = () => {
+  const [showResults, setShowResults] = React.useState(false);
+  const onClick = () => setShowResults(true);
+  return (
+    <div>
+      <input type="submit" value="Search" onClick={onClick} />
+      {showResults ? <Results /> : null}
+    </div>
+  );
+};
 
-function SearchBox() {
+function SearchBox(props) {
   const [value, setValue] = useState("");
 
+  const handleChange = (event) => {
+    setValue(event.target.value);
+    console.log(moviesData(value));
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
     moviesData(value);
@@ -29,9 +48,11 @@ function SearchBox() {
         type="search"
         placeholder="Search for a Movie"
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={handleChange}
       ></input>
-      <button type="submit">Search</button>
+      <button className=" btn btn-primary ml-3" type="submit">
+        Search
+      </button>
     </form>
   );
 }
@@ -51,4 +72,3 @@ function moviesData(Searchquery) {
     .then((movies) => movies.json())
     .then((movieData) => console.log(movieData.results));
 }
-moviesData();
