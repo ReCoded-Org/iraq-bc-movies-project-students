@@ -35,6 +35,13 @@ function SearchBox() {
     </form>
   );
 }
+const spinnr = (props) => {
+  return (
+    <Spinner style={{ display: "none" }} animation="border" role="status">
+      <span className="sr-only spin">Loading...</span>
+    </Spinner>
+  );
+};
 export default navBar;
 
 function moviesData(Searchquery) {
