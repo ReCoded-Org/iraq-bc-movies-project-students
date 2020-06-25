@@ -1,20 +1,23 @@
-// import React from "react";
-// import { Button, Form, FormControl } from "react-bootstrap";
+import React from "react";
+import { Button, Form, FormControl } from "react-bootstrap";
+import Spinners from "./Spinner";
 
-// function Search(props) {
-//   const onChange = props.onChange;
-//   return (
-//     <Form inline>
-//       <FormControl
-//         type="text"
-//         placeholder="Search"
-//         className="mr-sm-2"
-//         onChange={onChange}
-//       />
-//       <Button variant="outline-light" type="submit">
-//         Search
-//       </Button>
-//     </Form>
-//   );
-// }
-// export default Search;
+function Search(props) {
+  return (
+    <Form inline onSubmit={props.onSubmit}>
+      <FormControl
+        type="text"
+        placeholder="Search"
+        className="mr-sm-2"
+        onChange={props.onChange}
+      />
+      <Button variant="outline-light" type="submit">
+        Search
+        <span>
+          <Spinners hidden={props.hidden} />
+        </span>
+      </Button>
+    </Form>
+  );
+}
+export default Search;
