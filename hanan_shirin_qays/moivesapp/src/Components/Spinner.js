@@ -3,11 +3,8 @@ import { Spinner } from "react-bootstrap";
 
 export default function Spinners(props) {
   return (
-    <Spinner
-      hidden={props.hidden}
-      animation="border"
-      variant="primary"
-      size="sm"
-    />
+   <> 
+   {!props.isSpinnerHidden && <Spinner animation="border" variant="primary"size="sm"/>}
+   </>
   );
 }

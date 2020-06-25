@@ -14,7 +14,7 @@ function Search(props) {
       <Button variant="outline-light" type="submit">
         Search
         <span>
-          <Spinners hidden={props.hidden} />
+          <Spinners isSpinnerHidden={props.isSpinnerHidden} />
         </span>
       </Button>
     </Form>
