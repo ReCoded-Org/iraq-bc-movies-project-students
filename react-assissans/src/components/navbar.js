@@ -23,25 +23,21 @@ function SearchBox() {
 
   const handleChange = (event) => {
     setLoading(true);
-
     setValue(event.target.value);
-    fetch(`${moviesUrl}&query=${value}`)
-      .then((movies) => movies.json())
-      .then((movieData) => {
-        setLoading(false);
-        console.log(movieData.results);
-      });
+    moviesData(value).then((moviesArr) => {
+      setLoading(false);
+      console.log(moviesArr);
+    });
   };
   const handleSubmit = (event) => {
     setLoading(true);
-    fetch(`${moviesUrl}&query=${value}`)
-      .then((movies) => movies.json())
-      .then((movieData) => {
-        setLoading(false);
-        console.log(movieData.results);
-      });
     event.preventDefault();
+    moviesData(value).then((moviesArr) => {
+      setLoading(false);
+      console.log(moviesArr);
+    });
   };
+
   return (
     <>
       <form className="form-inline my-2" onSubmit={handleSubmit}>
@@ -60,11 +56,8 @@ function SearchBox() {
     </>
   );
 }
-//function OnSearch() {
-//return <Loading value="inline-block" />;
-//}
-const Loading = (props) => {
-  console.log(props.value);
+
+const Loading = () => {
   return (
     <Spinner animation="grow" role="status" variant="warning" className="ml-4">
       <span className="sr-only spin ">Loading...</span>
@@ -72,3 +65,7 @@ const Loading = (props) => {
   );
 };
 export default navBar;
+
+function moviesData(query) {
+  return fetch(`${moviesUrl}&query=${query}`).then((movies) => movies.json());
+}
