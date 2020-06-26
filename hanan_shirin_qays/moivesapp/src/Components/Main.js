@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 //import RenderMovie from "./RenderMovie";
 //import { Form } from "react-bootstrap";
 import { constructUrl } from './Api';
-import MovieItem from './MovieItem';
+import MoviesGrid from "./MoviesGrid";
+
 function Main(props) {
   const query = props.query;
   console.log(query);
@@ -26,10 +27,10 @@ function Main(props) {
   }, [query]);
 
   console.log(movies);
-  MovieItem(movies);
   return (
     <React.Fragment>
-      {movies.length > 0 && movies.map(movie => <h1 key={movie.id}>{movie.title}</h1>)}
+      {movies.length > 0 &&
+      <MoviesGrid movies={movies}/>}
     </React.Fragment>
   );
 

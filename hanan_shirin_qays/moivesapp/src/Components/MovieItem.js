@@ -1,7 +1,8 @@
 
+import React, { useState } from "react";
 
 export default function MovieItem(props) {
-    let movieList = [];
-    movieList = props.map(movie => movie.title);
-    console.log("This is Mapped Movie Grid" + `\n` + movieList);
+ 
+return (<h1 key={props.id}>{props.title}</h1>);
+
 }
