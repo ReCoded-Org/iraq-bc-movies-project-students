@@ -46,6 +46,7 @@ feel free to style the movies list but we suggest making it as a grid and each m
 
 ### Search Keywords
 
+- lifting props react
 - Events in react
 - Events with state
 - handling Forms in react
