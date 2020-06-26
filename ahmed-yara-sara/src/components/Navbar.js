@@ -14,14 +14,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 
 export default function Navbar1() {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = { value: "", loading: false };
 
-  //   this.handleChange = this.handleChange.bind(this);
-  //   this.handleSubmit = this.handleSubmit.bind(this);
-  // }
-  
   const [isSubmitted, submitForm] = React.useState(false);
   const [searchValue, setSearchValue] = React.useState("");
 
@@ -29,12 +22,14 @@ export default function Navbar1() {
     setSearchValue( event.target.value );
   }
 
-  // const handleSubmit = (event) => {
-    
+  React.useEffect(()=>{
+    if (isSubmitted)
+    setTimeout(() => {
 
-  //   event.preventDefault();
-  // }
-
+      submitForm(false);
+    }, 3000);
+  },[isSubmitted]);
+  
     return (
   
 
