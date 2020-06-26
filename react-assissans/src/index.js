@@ -5,10 +5,12 @@ import * as serviceWorker from "./serviceWorker";
 import Navbar from "./components/navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Main from "./components/main";
+import Footer from "./components/footer";
 ReactDOM.render(
   <React.StrictMode>
     <Navbar />
     <Main />
+    <Footer />
   </React.StrictMode>,
   document.getElementById("root")
 );
