@@ -17,7 +17,7 @@ function navBar() {
   );
 }
 
-function SearchBox() {
+function SearchBox(props) {
   const [value, setValue] = useState("");
   let [loading, setLoading] = useState(false);
 
