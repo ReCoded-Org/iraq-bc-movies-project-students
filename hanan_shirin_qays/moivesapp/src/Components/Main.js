@@ -29,8 +29,7 @@ function Main(props) {
   console.log(movies);
   return (
     <React.Fragment>
-      {movies.length > 0 &&
-      <MoviesGrid movies={movies}/>}
+      {movies.length > 0 && <MoviesGrid movies={movies} />}
     </React.Fragment>
   );
 
