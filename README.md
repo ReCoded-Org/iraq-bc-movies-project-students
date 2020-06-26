@@ -14,7 +14,11 @@ Updated Jun 24, 4:30 pm
 
 - Add a Spinner component to the Navbar component and make it invisible by default also pass a function called `onSearch` to the SearchBox and then when you type some text inside the SearchBox component, call it to make the spinner in the Navbar component appears. You can use spinners from here https://react-bootstrap.github.io/components/spinners/
 
-- use this function to fetch and don’t change it, the `path` is basically whatever your are requesting after the `TMDB_BASE_URL` like `/movies/popular`
+- add a function in the `app.j`s called `handleChange(query)` it will handle the change of the query in the `SearchBox`, pass it to The `Navbar` component and then pass it to the SearchBox component and onSubmit your form you pass the search query to this function and when the query is back to the `app.js` you should pass the query to the `Main` component as a prop too, finally console.log(props.query) inside your `Main` component.
+
+- have another function called `handleMovies(movies)` which will do the same as `handleChange(query)` function but instead when user Submit the form you should search for the input using the `constructUrl` function passing it the search path and query, and then return the results into the main component using the handler function, read the following points when implementing
+
+- use this function with fetch and don’t change it, the `path` is basically whatever your are requesting after the `TMDB_BASE_URL` for example `search/movie`
 
 ```jsx
 const constructUrl = (path, query) => {
@@ -27,8 +31,7 @@ const constructUrl = (path, query) => {
 - checkout this for more info about the search api endpoint
   https://developers.themoviedb.org/3/search/search-movies
 
-- Implement the SearchBox component to search for the input using the `constructUrl` function passing it the search path and query, and then return the results into the main component using a handler function. the function should be passed as a prop to the SearchBox.
-- Send the movies response from the main component to another component that will render the movies and lets call it MoviesGrid.
+- In the `Main` component send the movies to another component that will render the movies and lets call it MoviesGrid.
 - In the MoviesGrid map each movie to another component called MovieItem.
 
 ### Homework
