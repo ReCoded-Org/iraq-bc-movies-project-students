@@ -20,7 +20,7 @@ function Main(props) {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.results != undefined)
+        if (data.results !== undefined)
           setMovies(data.results);
       }).catch(err => console.log(err));
   }, [query]);
