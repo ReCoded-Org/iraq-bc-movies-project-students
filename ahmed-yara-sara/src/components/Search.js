@@ -3,7 +3,8 @@ import "react-bootstrap";
 import { Spinner, Form, FormControl, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-export default function Form1() {
+
+export default function Search() {
   const [isSubmitted, submitForm] = React.useState(false);
   const [searchValue, setSearchValue] = React.useState("");
 
@@ -36,7 +37,7 @@ export default function Form1() {
       />
       <Button variant="outline-info" type="submit">
         {!isSubmitted && "Search"}
-        {isSubmitted && <Spinner animation="border" variant="info" />}
+        {isSubmitted && <Spinner size="sm" animation="border" variant="info" />}
       </Button>
     </Form>
   );
