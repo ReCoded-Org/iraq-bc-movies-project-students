@@ -10,7 +10,7 @@ export default function MovieItem(props) {
     //console.log(props.movie.backdrop_path);
     const baseUrl = "https://image.tmdb.org/t/p/w500/";
     const nullPhoto = "https://image.tmdb.org/t/p/w500/wwemzKWzjKYJFfCeiB57q3r4Bcm.png";
-    return (<Card>
+    return (<Card style={{ width: '23rem' }}>
         <Card.Img variant="top" src={props.backdrop_path !== null ? baseUrl + props.backdrop_path : nullPhoto} />
         <Card.Body>
             <Card.Text>
