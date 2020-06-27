@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "react-bootstrap";
-import { Spinner, Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import Form1 from "./Search";
 import "bootstrap/dist/css/bootstrap.min.css";
 

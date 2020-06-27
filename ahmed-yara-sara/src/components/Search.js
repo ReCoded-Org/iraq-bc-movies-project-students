@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "react-bootstrap";
-import { Form, FormControl, Button } from "react-bootstrap";
+import { Spinner, Form, FormControl, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Form1() {
