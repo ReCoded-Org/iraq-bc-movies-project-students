@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import Search from "./Search";
 
@@ -16,8 +16,10 @@ export default function Header(props) {
               Home
             </Nav.Link>
           </Nav>
-
+          /////
           <Search
+            categorie={props.categorie}
+            setCategorie={props.setCategorie}
             onSubmit={props.onSubmit}
             onChange={props.onChange}
             isSpinnerHidden={props.isSpinnerHidden}
