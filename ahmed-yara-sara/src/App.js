@@ -10,18 +10,7 @@ function App(){
   const [movies, setMovies] = useState([])
   const [query, setQuery] = useState('')
 
-//   function useState(base){
-// let value = base;
-// function setValue(newValue){
-//   value = newValue;
-// }
 
-// return [value,setValue];
-//   }
-
-
-
-  
 
 
  const handleQuery = query => {
