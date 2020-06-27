@@ -1,12 +1,18 @@
 import { Navbar, Nav, Spinner } from "react-bootstrap";
 import React, { useState } from "react";
-const moviesUrl =
-  "https://api.themoviedb.org/3/search/movie/?api_key=1d54e327869a62aba4dc1b58c2b30233";
+// const moviesUrl =
+//   "https://api.themoviedb.org/3/search/movie/?api_key=1d54e327869a62aba4dc1b58c2b30233";
+const TMDB_BASE_URL = "https://api.themoviedb.org/3;
+  const constructUrl = (path, query) => {
+    return `${TMDB_BASE_URL}/${path}?api_key=${atob(
+      "ZDJmYTdhZDFlMjZhZjA4NDdkMzQ5ZDdkYmQ1ZjkzZTU="
+    )}&query=${query}`;
+  };
 
 function navBar() {
   return (
     <>
-      <Navbar bg="dark">
+      <Navbar bg="dark" variant="dark">
         <Navbar.Brand href="#">Assassins Movies</Navbar.Brand>
         <Nav>
           <Nav.Link href="#home">Home</Nav.Link>
@@ -66,6 +72,6 @@ const Loading = () => {
 };
 export default navBar;
 
-function moviesData(query) {
-  return fetch(`${moviesUrl}&query=${query}`).then((movies) => movies.json());
+function moviesData(path,query) {
+  return fetch(constructUrl).then((movies) => movies.json());
 }
