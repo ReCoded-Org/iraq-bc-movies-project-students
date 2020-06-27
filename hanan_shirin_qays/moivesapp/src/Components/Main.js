@@ -5,7 +5,7 @@ import MoviesGrid from "./MoviesGrid";
 function Main(props) {
   const [movies, setMovies] = useState([]);
   const query = props.query;
-  const categorie = props.categorie;
+  const category = props.category;
   useEffect(() => {
     let SEARCH_URL;
     if (query !== "") {
@@ -20,11 +20,11 @@ function Main(props) {
         if (data.results !== undefined) {
           let movies = data.results;
           console.log(movies);
-          console.log(categorie);
+          console.log(category);
 
-          if (categorie.id) {
+          if (category.id) {
             movies = movies.filter((movie) =>
-              movie.genre_ids.includes(categorie.id)
+              movie.genre_ids.includes(category.id)
             );
             console.log(movies);
           }
@@ -33,7 +33,7 @@ function Main(props) {
         }
       })
       .catch((err) => console.log(err));
-  }, [query, categorie]);
+  }, [query, category]);
 
   return (
     <React.Fragment>

@@ -29,7 +29,7 @@ export default function RenderCategories(props) {
             <Dropdown.Item
               href="#"
               key={category.id}
-              onSelect={() => props.setCategorie(category)}
+              onSelect={() => props.setCategory(category)}
             >
               {category.name}
             </Dropdown.Item>

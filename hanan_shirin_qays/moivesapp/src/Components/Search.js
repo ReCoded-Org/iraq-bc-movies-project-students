@@ -7,8 +7,8 @@ function Search(props) {
   return (
     <Form inline onSubmit={props.onSubmit}>
       <DropdownCategories
-        categorie={props.categorie}
-        setCategorie={props.setCategorie}
+        category={props.category}
+        setCategory={props.setCategory}
       />
       <FormControl
         type="text"

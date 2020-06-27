@@ -9,11 +9,11 @@ import "react-simple-flex-grid/lib/main.css";
 function App() {
   const [isSpinnerHidden, setIsSpinnerHidden] = useState(true);
   const [inputSearch, setInputSearch] = useState("");
-  const [categorie, setCategorie] = useState({});
+  const [category, setCategory] = useState({});
 
-  const changeCategorie = (categorie) => {
-    console.log(categorie);
-    setCategorie(categorie);
+  const changeCategory = (category) => {
+    console.log(category);
+    setCategory(category);
   };
   const onChange = (e) => {
     setInputSearch(e.target.value);
@@ -31,13 +31,13 @@ function App() {
         <Header
           onSubmit={onSubmit}
           onChange={onChange}
-          categorie={categorie}
-          setCategorie={changeCategorie}
+          category={category}
+          setCategory={changeCategory}
           isSpinnerHidden={isSpinnerHidden}
         />
         <Main
           query={inputSearch}
-          categorie={categorie}
+          category={category}
           setIsSpinnerHidden={setIsSpinnerHidden}
         />
       </div>

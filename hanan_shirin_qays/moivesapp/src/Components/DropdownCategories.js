@@ -12,11 +12,11 @@ export default function DropdownCategories(props) {
     <>
       <Dropdown style={{ marginRight: "5px" }}>
         <Dropdown.Toggle variant="info" id="dropdown-basic">
-          {props.categorie.name || "Categories"}
+          {props.category.name || "Categories"}
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
-          <RenderCategories setCategorie={props.setCategorie} />
+          <RenderCategories setCategory={props.setCategory} />
         </Dropdown.Menu>
       </Dropdown>
     </>

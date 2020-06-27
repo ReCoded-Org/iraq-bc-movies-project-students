@@ -17,8 +17,8 @@ export default function Header(props) {
             </Nav.Link>
           </Nav>
           <Search
-            categorie={props.categorie}
-            setCategorie={props.setCategorie}
+            category={props.category}
+            setCategory={props.setCategory}
             onSubmit={props.onSubmit}
             onChange={props.onChange}
             isSpinnerHidden={props.isSpinnerHidden}
