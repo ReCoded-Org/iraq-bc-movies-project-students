@@ -11,7 +11,7 @@ function navBar(props) {
         <Nav>
           <Nav.Link href="#home">Home</Nav.Link>
         </Nav>
-        <SearchBox onHandle={props.handleQuery} />
+        <SearchBox onHandle={props.handleQuery} onSubmit={props.handleMovies} />
       </Navbar>
     </>
   );
@@ -27,6 +27,7 @@ function SearchBox(props) {
     props.onHandle(event.target.value);
     moviesData(value).then((moviesArr) => {
       setLoading(false);
+
       console.log(moviesArr);
     });
   };
@@ -35,6 +36,7 @@ function SearchBox(props) {
     event.preventDefault();
     moviesData(value).then((moviesArr) => {
       setLoading(false);
+      props.onSubmit(moviesArr.results);
       console.log(moviesArr);
     });
   };

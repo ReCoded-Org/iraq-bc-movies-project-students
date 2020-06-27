@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
-import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./components/navbar";
 import Main from "./components/main";
@@ -13,14 +11,14 @@ function App() {
     return setMovies([moviesResult]);
   };
 
-  function handleQuery(query) {
-    setQuery(query);
+  function handleQuery(searchText) {
+    setQuery(searchText);
   }
 
   return (
     <div>
       <Navbar handleQuery={handleQuery} handleMovies={handleMovies} />
-      <Main query={query} />
+      <Main moviesData={movies} />
     </div>
   );
 }
