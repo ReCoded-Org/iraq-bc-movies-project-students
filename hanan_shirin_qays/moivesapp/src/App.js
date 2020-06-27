@@ -13,7 +13,6 @@ function App() {
 
   const changeCategorie = (categorie) => {
     console.log(categorie);
-
     setCategorie(categorie);
   };
   const onChange = (e) => {
@@ -27,25 +26,23 @@ function App() {
   };
 
   return (
-    <>
-      <Header
-        onSubmit={onSubmit}
-        onChange={onChange}
-        categorie={categorie}
-        setCategorie={changeCategorie}
-        isSpinnerHidden={isSpinnerHidden}
-      />
-      <div className="container">
-        <div>
-          <Main
-            setIsSpinnerHidden={setIsSpinnerHidden}
-            categorie={categorie}
-            query={inputSearch}
-          ></Main>
-        </div>
+    <div className="page-container">
+      <div className="content-wrap">
+        <Header
+          onSubmit={onSubmit}
+          onChange={onChange}
+          categorie={categorie}
+          setCategorie={changeCategorie}
+          isSpinnerHidden={isSpinnerHidden}
+        />
+        <Main
+          query={inputSearch}
+          categorie={categorie}
+          setIsSpinnerHidden={setIsSpinnerHidden}
+        />
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
 export default App;

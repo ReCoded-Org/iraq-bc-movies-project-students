@@ -8,7 +8,6 @@ import {
 } from "react-bootstrap";
 
 export default function RenderCategories(props) {
-  //let nameMovie = props.nameMovie;
   const SEARCH_URL_Categories = constructUrl("genre/movie/list", "");
 
   const [categories, setCategories] = useState([]);

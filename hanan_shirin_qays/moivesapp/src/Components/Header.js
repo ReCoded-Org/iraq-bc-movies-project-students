@@ -16,7 +16,6 @@ export default function Header(props) {
               Home
             </Nav.Link>
           </Nav>
-          /////
           <Search
             categorie={props.categorie}
             setCategorie={props.setCategorie}
