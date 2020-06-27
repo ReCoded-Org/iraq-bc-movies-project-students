@@ -1,44 +1,47 @@
 import React, { useState } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
-import Header from "./Components/Header";
+import Navbar from "./Components/Navbar";
 import Main from "./Components/Main";
 import Footer from "./Components/Footer";
 import "react-simple-flex-grid/lib/main.css";
 
 function App() {
-  const [isSpinnerHidden, setIsSpinnerHidden] = useState(true);
-  const [inputSearch, setInputSearch] = useState("");
-  const [category, setCategory] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+  const [query, setQuery] = useState("");
+  const [movies, setMovies] = useState([]);
 
-  const changeCategory = (category) => {
-    console.log(category);
-    setCategory(category);
-  };
-  const onChange = (e) => {
-    setInputSearch(e.target.value);
-    setIsSpinnerHidden(false);
+  const handleQuery = (query) => {
+    setQuery(query);
+  }
+
+
+
+  const handleMovies = (movies)=>{
+    setMovies(movies);          
+    setIsLoading(false);
+
   };
 
-  const onSubmit = (event) => {
-    event.preventDefault();
-    setIsSpinnerHidden(true);
-  };
+
+
+
 
   return (
     <div className="page-container">
       <div className="content-wrap">
-        <Header
-          onSubmit={onSubmit}
-          onChange={onChange}
-          category={category}
-          setCategory={changeCategory}
-          isSpinnerHidden={isSpinnerHidden}
+        <Navbar
+          handleQuery={handleQuery}
+          handleMovies={handleMovies}
+          isLoading={isLoading}
+          setIsLoading={setIsLoading}
+
         />
         <Main
-          query={inputSearch}
-          category={category}
-          setIsSpinnerHidden={setIsSpinnerHidden}
+        isLoading={isLoading}
+        setIsLoading={setIsLoading}
+        movies={movies}
+          query={query}
         />
       </div>
       <Footer />

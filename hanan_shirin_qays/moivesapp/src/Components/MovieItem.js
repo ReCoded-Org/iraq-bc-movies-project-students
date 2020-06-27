@@ -6,7 +6,9 @@ export default function MovieItem(props) {
   const nullPhoto =
     "https://image.tmdb.org/t/p/w500/wwemzKWzjKYJFfCeiB57q3r4Bcm.png";
   return (
-    <Card style={{ width: "23rem" }}>
+    <Card 
+    key={props.id}
+    style={{ width: "23rem" }}>
       <Card.Img
         variant="top"
         src={
@@ -20,9 +22,5 @@ export default function MovieItem(props) {
       </Card.Body>
     </Card>
   );
-  //<Col lg={true}><img src=></img><p></p></Col >);
-  //<Col xs>Second, but unordered</Col>
-  //<Col xs={{ order: 'first' }}>Third, but first</Col>
 
-  //<h1 key={props.id}>{props.title}</h1>);
 }

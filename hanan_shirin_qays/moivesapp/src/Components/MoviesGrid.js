@@ -8,6 +8,5 @@ export default function MoviesGrid(props) {
     <Container>
       <Row>{props.movies.map((movie) => MovieItem(movie))}</Row>
     </Container>
-    //props.movies.map(movie =>MovieItem(movie))
   );
 }

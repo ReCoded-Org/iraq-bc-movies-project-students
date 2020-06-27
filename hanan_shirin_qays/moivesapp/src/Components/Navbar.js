@@ -1,8 +1,8 @@
 import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
-import Search from "./Search";
+import SearchBox from "./SearchBox";
 
-export default function Header(props) {
+export default function Navbar1(props) {
   return (
     <div>
       <Navbar bg="dark" expand="lg">
@@ -16,12 +16,13 @@ export default function Header(props) {
               Home
             </Nav.Link>
           </Nav>
-          <Search
-            category={props.category}
-            setCategory={props.setCategory}
-            onSubmit={props.onSubmit}
-            onChange={props.onChange}
-            isSpinnerHidden={props.isSpinnerHidden}
+          <SearchBox
+          handleQuery = {props.handleQuery}
+          handleMovies={props.handleMovies}
+            isLoading={props.isLoading}
+            setIsLoading={props.setIsLoading}
+        
+
           />
         </Navbar.Collapse>
       </Navbar>
