@@ -1,15 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useState } from "react";
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./components/navbar";
 import Main from "./components/main";
 
 function App() {
+  function handleQuery(query) {
+    const [query, setquery] = useState("");
+  }
   return (
-    <div >
-    <Navbar />
-    <Main />
+    <div>
+      <Navbar />
+      <Main />
     </div>
   );
 }
