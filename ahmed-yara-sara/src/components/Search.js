@@ -3,7 +3,7 @@ import "react-bootstrap";
 import { Spinner, Form, FormControl, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-export default function Search( props) {
+export default function Search(props) {
   const [isSubmitted, submitForm] = React.useState(false);
   const [searchValue, setSearchValue] = React.useState("");
 
@@ -26,26 +26,22 @@ export default function Search( props) {
   }, [isSubmitted]);
 
   function fetchMoives() {
-    const TMDB_BASE_URL='https://api.themoviedb.org/3';
+    const TMDB_BASE_URL = "https://api.themoviedb.org/3";
     const constructUrl = (path, query) => {
       return `${TMDB_BASE_URL}/${path}?api_key=${atob(
         "ZDJmYTdhZDFlMjZhZjA4NDdkMzQ5ZDdkYmQ1ZjkzZTU="
       )}&query=${query}`;
-  
     };
-    const URL =constructUrl("search/movie", searchValue);
+    const URL = constructUrl("search/movie", searchValue);
 
-    fetch(URL).then((movies) =>movies.json())
-    .then((data)=>{
-console.log(data);
-props.handleMovies(data.results)
-   //  setMovies(movies.results)
-   }
-    ) 
+    fetch(URL)
+      .then((movies) => movies.json())
+      .then((data) => {
+        console.log(data);
+        props.handleMovies(data.results);
+        //  setMovies(movies.results)
+      });
   }
-
-
-
 
   return (
     <Form inline onSubmit={onSubmit}>
