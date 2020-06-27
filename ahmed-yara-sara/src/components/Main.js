@@ -1,26 +1,15 @@
-import React, { Component } from 'react';
-// import MovieItem from "./MovieGrid";
+import React, { Component ,useEffect} from 'react';
+import MovieGrid from "./MovieGrid";
 function Main (props) {
-    console.log(props.moviesList);
-    
 
+
+useEffect(()=>{
+
+});
         return (
             <>
-{/* <MovieItem/> */}
             <p>Main Component</p>
-        
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
+<MovieGrid movies={props.movies}/>
             
             </>
           );

@@ -15,6 +15,7 @@ export default function Search( props) {
     e.preventDefault();
     submitForm(true);
     props.handleQuery(searchValue);
+    fetchMoives();
     console.log("you searched for " + searchValue);
   };
   React.useEffect(() => {
@@ -23,6 +24,28 @@ export default function Search( props) {
         submitForm(false);
       }, 3000);
   }, [isSubmitted]);
+
+  function fetchMoives() {
+    const TMDB_BASE_URL='https://api.themoviedb.org/3';
+    const constructUrl = (path, query) => {
+      return `${TMDB_BASE_URL}/${path}?api_key=${atob(
+        "ZDJmYTdhZDFlMjZhZjA4NDdkMzQ5ZDdkYmQ1ZjkzZTU="
+      )}&query=${query}`;
+  
+    };
+    const URL =constructUrl("search/movie", searchValue);
+
+    fetch(URL).then((movies) =>movies.json())
+    .then((data)=>{
+console.log(data);
+props.handleMovies(data.results)
+   //  setMovies(movies.results)
+   }
+    ) 
+  }
+
+
+
 
   return (
     <Form inline onSubmit={onSubmit}>

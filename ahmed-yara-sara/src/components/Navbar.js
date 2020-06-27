@@ -15,7 +15,7 @@ export default function Navbar1(props) {
           <Nav.Link href="#features">Features</Nav.Link>
           <Nav.Link href="#pricing">Pricing</Nav.Link>
         </Nav>
-        <Search handleQuery = {props.handleQuery}> </Search>
+        <Search handleQuery = {props.handleQuery}  handleMovies={props.handleMovies}> </Search>
       
 
       </Navbar>

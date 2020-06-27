@@ -7,36 +7,40 @@ import { useState } from 'react';
  
 
 function App(){
-  const [movies, setMovies] = useState('')
+  const [movies, setMovies] = useState([])
+  const [query, setQuery] = useState('')
 
- const TMDB_BASE_URL='https://api.themoviedb.org/3';
-  const constructUrl = (path, query) => {
-    return `${TMDB_BASE_URL}/${path}?api_key=${atob(
-      "ZDJmYTdhZDFlMjZhZjA4NDdkMzQ5ZDdkYmQ1ZjkzZTU="
-    )}&query=${query}`;
+//   function useState(base){
+// let value = base;
+// function setValue(newValue){
+//   value = newValue;
+// }
 
-  };
+// return [value,setValue];
+//   }
+
+
+
   
 
+
  const handleQuery = query => {
-   const URL =constructUrl("search/movie", query);
-   
- fetch(URL)
- .then((movies) =>movies.json())
- .then((movies)=>
- setMovies(movies.results)
- ) 
+   setQuery(query);
+
   }
 
 
    const handleMovies= movies =>{
+    setMovies(movies)
     console.log("moveis handle is working ");
    }
+   console.log(movies);
+   
   return (
 <>
-            <Navbar1 handleQuery={handleQuery}  handelMovies={handleMovies}></Navbar1>
+            <Navbar1 handleQuery={handleQuery}  handleMovies={handleMovies}></Navbar1>
 
-            <Main moviesList={movies}></Main>
+            <Main  movies={movies}></Main>
             <FooterBar></FooterBar>
           </>
 )
