@@ -6,13 +6,7 @@ This project uses The Movie DB API: `https://api.themoviedb.org/3`. It is up to
 you to use your Google and Postman skills to explore the API and understand the
 data.
 
-# Version 2
-
-Updated Jun 24, 4:30 pm
-
-### What to do in class
-
-- Add a Spinner component to the Navbar component and make it invisible by default also pass a function called `onSearch` to the SearchBox and then when you type some text inside the SearchBox component, call it to make the spinner in the Navbar component appears. You can use spinners from here https://react-bootstrap.github.io/components/spinners/
+# Version 3
 
 - add a function in the `app.j`s called `handleChange(query)` it will handle the change of the query in the `SearchBox`, pass it to The `Navbar` component and then pass it to the SearchBox component and onSubmit your form you pass the search query to this function and when the query is back to the `app.js` you should pass the query to the `Main` component as a prop too, finally console.log(props.query) inside your `Main` component.
 
@@ -39,6 +33,15 @@ const constructUrl = (path, query) => {
 - Go to the TMDB documentations and see how you can get all the genres (the categories) and how to get popular movies in this category
 - Fetch the categories and put them inside a dropdown inside the NavBar
 - when you change categories from the dropdown it should fetch the popular movies in that category
+
+
+# Version 2
+
+Updated Jun 24, 4:30 pm
+
+### What to do in class
+
+- Add a Spinner component to the Navbar component and make it invisible by default also pass a function called `onSearch` to the SearchBox and then when you type some text inside the SearchBox component, call it to make the spinner in the Navbar component appears. You can use spinners from here https://react-bootstrap.github.io/components/spinners/
 
 ### Styling
 
