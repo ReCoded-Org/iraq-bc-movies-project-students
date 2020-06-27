@@ -3,8 +3,7 @@ import "react-bootstrap";
 import { Spinner, Form, FormControl, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-
-export default function Search() {
+export default function Search( props) {
   const [isSubmitted, submitForm] = React.useState(false);
   const [searchValue, setSearchValue] = React.useState("");
 
@@ -12,6 +11,12 @@ export default function Search() {
     setSearchValue(event.target.value);
   };
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+    submitForm(true);
+    props.handleQuery(searchValue);
+    console.log("you searched for " + searchValue);
+  };
   React.useEffect(() => {
     if (isSubmitted)
       setTimeout(() => {
@@ -20,14 +25,7 @@ export default function Search() {
   }, [isSubmitted]);
 
   return (
-    <Form
-      inline
-      onSubmit={(e) => {
-        e.preventDefault();
-        submitForm(true);
-        console.log("you searched for " + searchValue);
-      }}
-    >
+    <Form inline onSubmit={onSubmit}>
       <FormControl
         type="text"
         value={searchValue}

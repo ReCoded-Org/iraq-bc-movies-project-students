@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+// import MovieItem from "./MovieGrid";
+function Main (props) {
+    console.log(props.moviesList);
+    
 
-class Main extends Component {
-    state = {  }
-    render() { 
         return (
             <>
+{/* <MovieItem/> */}
             <p>Main Component</p>
+        
             <br></br>
             <br></br>
             <br></br>
@@ -21,7 +24,7 @@ class Main extends Component {
             
             </>
           );
-    }
+   
 }
  
 export default Main;

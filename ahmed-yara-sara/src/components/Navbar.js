@@ -5,7 +5,7 @@ import Search from "./Search";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
-export default function Navbar1() {
+export default function Navbar1(props) {
   return (
     <>
       <Navbar bg="dark" variant="dark">
@@ -15,7 +15,8 @@ export default function Navbar1() {
           <Nav.Link href="#features">Features</Nav.Link>
           <Nav.Link href="#pricing">Pricing</Nav.Link>
         </Nav>
-        <Search/>
+        <Search handleQuery = {props.handleQuery}> </Search>
+      
 
       </Navbar>
       <br />
