@@ -2,13 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
-import Navbar from "./components/navbar";
+import App from "./app.js";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Main from "./components/main";
 ReactDOM.render(
   <React.StrictMode>
-    <Navbar />
-    <Main />
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );

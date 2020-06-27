@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const moviesUrl =
   "https://api.themoviedb.org/3/search/movie/?api_key=1d54e327869a62aba4dc1b58c2b30233";
 
-function navBar() {
+function navBar(props) {
   return (
     <>
       <Navbar bg="dark" variant="dark">
@@ -11,7 +11,7 @@ function navBar() {
         <Nav>
           <Nav.Link href="#home">Home</Nav.Link>
         </Nav>
-        <SearchBox />
+        <SearchBox onHandle={props.handleQuery} />
       </Navbar>
     </>
   );
@@ -24,6 +24,7 @@ function SearchBox(props) {
   const handleChange = (event) => {
     setLoading(true);
     setValue(event.target.value);
+    props.onHandle(event.target.value);
     moviesData(value).then((moviesArr) => {
       setLoading(false);
       console.log(moviesArr);

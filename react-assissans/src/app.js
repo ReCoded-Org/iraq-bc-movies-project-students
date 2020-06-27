@@ -1,16 +1,19 @@
 import React, { useState } from "react";
-import "./App.css";
+//sssssss "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./components/navbar";
 import Main from "./components/main";
 
 function App() {
+  const [query, setQuery] = useState("X");
+
   function handleQuery(query) {
-    const [query, setquery] = useState("");
+    setQuery(query);
   }
+
   return (
     <div>
-      <Navbar />
+      <Navbar handleQuery={handleQuery} />
       <Main />
     </div>
   );
