@@ -7,15 +7,19 @@ import Main from "./components/main";
 
 function App() {
   const [movies, setMovies] = useState([]);
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState("X");
 
   const handleMovies = (moviesResult) => {
     return setMovies([moviesResult]);
   };
 
+  function handleQuery(query) {
+    setQuery(query);
+  }
+
   return (
     <div>
-      <Navbar handleMovies={handleMovies} />
+      <Navbar handleQuery={handleQuery} handleMovies={handleMovies} />
       <Main query={query} />
     </div>
   );

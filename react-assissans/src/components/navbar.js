@@ -1,15 +1,9 @@
 import { Navbar, Nav, Spinner } from "react-bootstrap";
 import React, { useState } from "react";
-// const moviesUrl =
-//   "https://api.themoviedb.org/3/search/movie/?api_key=1d54e327869a62aba4dc1b58c2b30233";
-const TMDB_BASE_URL = "https://api.themoviedb.org/3;
-  const constructUrl = (path, query) => {
-    return `${TMDB_BASE_URL}/${path}?api_key=${atob(
-      "ZDJmYTdhZDFlMjZhZjA4NDdkMzQ5ZDdkYmQ1ZjkzZTU="
-    )}&query=${query}`;
-  };
+const moviesUrl =
+  "https://api.themoviedb.org/3/search/movie/?api_key=1d54e327869a62aba4dc1b58c2b30233";
 
-function navBar() {
+function navBar(props) {
   return (
     <>
       <Navbar bg="dark" variant="dark">
@@ -17,19 +11,20 @@ function navBar() {
         <Nav>
           <Nav.Link href="#home">Home</Nav.Link>
         </Nav>
-        <SearchBox />
+        <SearchBox onHandle={props.handleQuery} />
       </Navbar>
     </>
   );
 }
 
-function SearchBox() {
+function SearchBox(props) {
   const [value, setValue] = useState("");
   let [loading, setLoading] = useState(false);
 
   const handleChange = (event) => {
     setLoading(true);
     setValue(event.target.value);
+    props.onHandle(event.target.value);
     moviesData(value).then((moviesArr) => {
       setLoading(false);
       console.log(moviesArr);
@@ -72,6 +67,6 @@ const Loading = () => {
 };
 export default navBar;
 
-function moviesData(path,query) {
-  return fetch(constructUrl).then((movies) => movies.json());
+function moviesData(query) {
+  return fetch(`${moviesUrl}&query=${query}`).then((movies) => movies.json());
 }
