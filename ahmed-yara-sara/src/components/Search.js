@@ -2,11 +2,9 @@ import React, { Component } from "react";
 import "react-bootstrap";
 import { Spinner, Form, FormControl, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 export default function Search(props) {
   const [isSubmitted, submitForm] = React.useState(false);
   const [searchValue, setSearchValue] = React.useState("");
-
   const handleChange = (event) => {
     setSearchValue(event.target.value);
   };
@@ -39,7 +37,6 @@ export default function Search(props) {
       .then((data) => {
         console.log(data);
         props.handleMovies(data.results);
-        //  setMovies(movies.results)
       });
   }
 

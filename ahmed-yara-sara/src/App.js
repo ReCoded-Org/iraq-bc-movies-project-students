@@ -22,7 +22,6 @@ function App() {
   return (
     <>
       <Navbar1 handleQuery={handleQuery} handleMovies={handleMovies}></Navbar1>
-
       <Main movies={movies}></Main>
       <FooterBar></FooterBar>
     </>
