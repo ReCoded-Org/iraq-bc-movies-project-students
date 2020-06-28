@@ -13,19 +13,12 @@ function App() {
 
   const handleQuery = (query) => {
     setQuery(query);
-  }
-
-
-
-  const handleMovies = (movies)=>{
-    setMovies(movies);          
-    setIsLoading(false);
-
   };
 
-
-
-
+  const handleMovies = (movies) => {
+    setMovies(movies);
+    setIsLoading(false);
+  };
 
   return (
     <div className="page-container">
@@ -35,12 +28,11 @@ function App() {
           handleMovies={handleMovies}
           isLoading={isLoading}
           setIsLoading={setIsLoading}
-
         />
         <Main
-        isLoading={isLoading}
-        setIsLoading={setIsLoading}
-        movies={movies}
+          isLoading={isLoading}
+          setIsLoading={setIsLoading}
+          movies={movies}
           query={query}
         />
       </div>
