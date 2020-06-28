@@ -7,7 +7,7 @@ export default function Navbar1(props) {
     <div>
       <Navbar bg="dark" expand="lg">
         <Navbar.Brand href="#home" style={{ color: "white" }}>
-          React App
+          React Movies App
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-Navbar-nav" />
         <Navbar.Collapse id="basic-Navbar-nav">
@@ -17,12 +17,10 @@ export default function Navbar1(props) {
             </Nav.Link>
           </Nav>
           <SearchBox
-          handleQuery = {props.handleQuery}
-          handleMovies={props.handleMovies}
+            handleQuery={props.handleQuery}
+            handleMovies={props.handleMovies}
             isLoading={props.isLoading}
             setIsLoading={props.setIsLoading}
-        
-
           />
         </Navbar.Collapse>
       </Navbar>

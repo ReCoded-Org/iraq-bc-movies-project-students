@@ -5,8 +5,7 @@ function Main(props) {
   const query = props.query;
   const movies = props.movies;
 
-console.log(query);
- 
+  console.log(query);
 
   return (
     <React.Fragment>
