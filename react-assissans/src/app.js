@@ -8,7 +8,7 @@ function App() {
   const [query, setQuery] = useState("X");
 
   const handleMovies = (moviesResult) => {
-    return setMovies([moviesResult]);
+    return setMovies(moviesResult);
   };
 
   function handleQuery(searchText) {
