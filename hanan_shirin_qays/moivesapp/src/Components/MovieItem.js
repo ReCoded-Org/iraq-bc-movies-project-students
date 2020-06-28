@@ -6,9 +6,8 @@ export default function MovieItem(props) {
   const nullPhoto =
     "https://image.tmdb.org/t/p/w500/wwemzKWzjKYJFfCeiB57q3r4Bcm.png";
   return (
-    <Card 
-    key={props.id}
-    style={{ width: "23rem" }}>
+    <Card
+      key={props.id}>
       <Card.Img
         variant="top"
         src={
