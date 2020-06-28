@@ -1,15 +1,20 @@
-import React, { Component } from "react";
+import React, { Component, useEffect ,useState } from "react";
 import "react-bootstrap";
 import { Spinner, Form, FormControl, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Dropdown from "./Dropdown"
+import DropdownMenu from "./Dropdown"
 export default function Search(props) {
   const [isSubmitted, submitForm] = React.useState(false);
   const [searchValue, setSearchValue] = React.useState("");
+  const [category, setCategory] = useState({});
   const handleChange = (event) => {
     setSearchValue(event.target.value);
   };
-
+  const changeCategory = (category) => {
+    console.log(category);
+    //props.setIsLoading(true);
+    setCategory(category.id);
+  };
   const onSubmit = (e) => {
     e.preventDefault();
     submitForm(true);
@@ -43,13 +48,20 @@ export default function Search(props) {
       .then((movies) => movies.json())
       .then((data) => {
         console.log(data);
+        if (category.id) {
+         let movies = data.filter((movie) =>
+            movie.genre_ids.includes(category.id)
+          );
+        }
       props.handleMovies(data.results);
   })
 }
-  
-  fetchMoives()
+
+  useEffect(()=>{ fetchMoives()},[searchValue])
+ 
   return (
     <Form inline onSubmit={onSubmit}>
+      <DropdownMenu category={category} setCategory={changeCategory}></DropdownMenu>
       <FormControl
         type="text"
         value={searchValue}

@@ -1,12 +1,12 @@
  import React, { Component } from "react";
  import "react-bootstrap";
- import {Dropdown} from "react-bootstrap";
- import { useState } from "react";
+ import {Dropdown } from "react-bootstrap";
+ import { useState,useEffect } from "react";
 
  export default function DropdownMenu(props) {
 const [Genres,setGenres]=useState([]);
 
-  function fetchGenre() {
+  useEffect(() =>{
     const TMDB_BASE_URL = "https://api.themoviedb.org/3";
     const constructUrl = (path, query) => {
       return `${TMDB_BASE_URL}/${path}?api_key=${atob(
@@ -18,9 +18,12 @@ const [Genres,setGenres]=useState([]);
       .then((genre) => genre.json())
       .then((data) => {
       setGenres(data.genres);
+      console.log(data.genres)
 });
-}
-fetchGenre();
+},[URL]);
+
+  //useEffect(()=>{fetchGenre()});
+
     return (
       <>
       <Dropdown>
@@ -29,8 +32,11 @@ fetchGenre();
         <Dropdown.Menu>
         <Dropdown.Item key={"1"}>All Genres</Dropdown.Item>
         {Genres.map((genre) => {
-    return  <Dropdown.Item key={genre.id.toString()}>{genre.name}</Dropdown.Item>
-      })}
+    return  <Dropdown.Item key={genre.id}
+             
+                           >
+                      {genre.name} </Dropdown.Item>
+        })}
         </Dropdown.Menu>
       </Dropdown>
       </>      

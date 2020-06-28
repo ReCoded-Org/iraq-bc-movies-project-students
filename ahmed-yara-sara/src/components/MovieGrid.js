@@ -17,6 +17,7 @@ export default function MovieGrid(props) {
               overview={movie.overview}
               popularity={movie.popularity}
               release_date={movie.release_date}
+              
             />
           </ul>
         ))}
