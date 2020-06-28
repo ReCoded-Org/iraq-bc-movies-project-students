@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "react-bootstrap";
 import { Spinner, Form, FormControl, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Dropdown from "./Dropdown"
 export default function Search(props) {
   const [isSubmitted, submitForm] = React.useState(false);
   const [searchValue, setSearchValue] = React.useState("");
@@ -30,16 +31,23 @@ export default function Search(props) {
         "ZDJmYTdhZDFlMjZhZjA4NDdkMzQ5ZDdkYmQ1ZjkzZTU="
       )}&query=${query}`;
     };
-    const URL = constructUrl("search/movie", searchValue);
-
+   // const URL = constructUrl("search/movie", searchValue);
+   
+   let URL;
+    if (searchValue !== "") {
+        URL = constructUrl("search/movie", searchValue);
+    } else {
+        URL = constructUrl("movie/popular");
+    }
     fetch(URL)
       .then((movies) => movies.json())
       .then((data) => {
         console.log(data);
-        props.handleMovies(data.results);
-      });
-  }
-
+      props.handleMovies(data.results);
+  })
+}
+  
+  fetchMoives()
   return (
     <Form inline onSubmit={onSubmit}>
       <FormControl
