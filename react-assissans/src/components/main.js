@@ -1,14 +1,11 @@
 import React from "react";
+import MoviesGrid from "./MoviesGrid";
 
 export default function Main(props) {
   console.log(props.moviesData);
   return (
     <React.Fragment>
-      <ul>
-        {props.moviesData.map((movie) =>
-          movie.map((data) => <li>{data.title}</li>)
-        )}
-      </ul>
+      <MoviesGrid movies={props.moviesData.map((data) => data)} />
     </React.Fragment>
   );
 }

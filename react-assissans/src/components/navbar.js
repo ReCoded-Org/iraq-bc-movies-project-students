@@ -27,8 +27,6 @@ function SearchBox(props) {
     props.onHandle(event.target.value);
     moviesData(value).then((moviesArr) => {
       setLoading(false);
-
-      console.log(moviesArr);
     });
   };
   const handleSubmit = (event) => {
@@ -37,7 +35,6 @@ function SearchBox(props) {
     moviesData(value).then((moviesArr) => {
       setLoading(false);
       props.onSubmit(moviesArr.results);
-      console.log(moviesArr);
     });
   };
 
