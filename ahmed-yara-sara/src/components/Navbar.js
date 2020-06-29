@@ -6,7 +6,9 @@ import Dropdown from "./Dropdown"
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Navbar1(props) {
+  const { handleQuery, handleMovies } = props;
   return (
+    
     <>
       <Navbar bg="dark" variant="dark">
         <Navbar.Brand href="#home">Movies For You</Navbar.Brand>
@@ -14,8 +16,8 @@ export default function Navbar1(props) {
         </Nav>
         <Dropdown></Dropdown>
         <Search
-          handleQuery={props.handleQuery}
-          handleMovies={props.handleMovies}
+          handleQuery={handleQuery}
+          handleMovies={handleMovies}
         >
         </Search>
       </Navbar>
