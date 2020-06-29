@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 import Navbar from "./Components/Navbar";
-import MainPage from "./Components/Main";
+import MainPage from "./Components/MainPage";
 import Footer from "./Components/Footer";
 import "react-simple-flex-grid/lib/main.css";
 import MoviePage from "./Components/MoviePage";
