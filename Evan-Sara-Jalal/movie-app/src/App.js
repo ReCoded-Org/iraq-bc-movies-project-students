@@ -45,11 +45,11 @@ function App() {
       .then((data) => {
         // console.log(data.results);
         const filtered = data.results.filter((movie) =>
-          movie.genre_ids.includes(genreId)
+          movie.genre_ids.includes(parseInt(genreId))
         );
-        console.log(genreId)
-        console.log(filtered);
-        setMovieList(data.results);
+        //console.log(genreId)
+       // console.log(filtered);
+        setMovieList(filtered);
 
         // console.log(searchedTerm);
       });
