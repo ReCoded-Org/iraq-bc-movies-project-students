@@ -2,7 +2,7 @@ import React from "react";
 import MovieItem from "./MovieItem";
 import Container from "react-bootstrap/Container";
 import { Row, Col } from "react-bootstrap";
-//mport MovieItem from "./MovieItem";
+
 export default function MoviesGrid(props) {
   return (
     <Container>
