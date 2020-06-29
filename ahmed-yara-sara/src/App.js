@@ -7,21 +7,9 @@ import { useState } from "react";
 
 function App() {
   const [movies, setMovies] = useState([]);
-  const [query, setQuery] = useState("");
-
-  const handleQuery = (query) => {
-    setQuery(query);
-  };
-
-  const handleMovies = (movies) => {
-    setMovies(movies);
-    
-  };
- 
-
   return (
     <>
-      <Navbar1 handleQuery={handleQuery} handleMovies={handleMovies}></Navbar1>
+      <Navbar1 handleMovies={setMovies}></Navbar1>
       <Main movies={movies}></Main>
       <FooterBar></FooterBar>
     </>

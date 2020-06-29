@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import MovieItem from "./MovieItem";
 export default function MovieGrid(props) {
   const movies = props.movies;
+
   return (
     <>
       <div className="row mt-3">
