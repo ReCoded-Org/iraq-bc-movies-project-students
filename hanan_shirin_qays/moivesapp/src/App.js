@@ -10,6 +10,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
+  // const [fetchMovie, setfetchMovie] = useState(false);
 
   const handleQuery = (query) => {
     setQuery(query);
