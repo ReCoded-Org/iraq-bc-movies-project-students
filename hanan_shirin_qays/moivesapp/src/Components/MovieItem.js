@@ -9,21 +9,21 @@ export default function MovieItem(props) {
 
 
   return (
-    <Card key={props.id} style={{ width: "50%" }}>
+    <Card key={props.movie.id} style={{ width: "50%" }}>
       <div class="card image">
-        <Card.Img src={props.backdrop_path !== null
-          ? baseUrl + props.backdrop_path
+        <Card.Img src={props.movie.backdrop_path !== null
+          ? baseUrl + props.movie.backdrop_path
           : nullPhoto} />
         <React.Fragment >
-          <h6 class="center datails">{props.title}<br /><span>Vote Average: <ReactStars
+          <h6 class="center datails">{props.movie.title}<br /><span>Vote Average: <ReactStars
             count={10}
-            value={props.vote_average}
+            value={props.movie.vote_average}
             size={14}
-            color2={"#ffd700"} /> ({props.vote_average})</span></h6>
+            color2={"#ffd700"} /> ({props.movie.vote_average})</span></h6>
         </React.Fragment>
         <div class="details">
           <div class="center">
-            <p>Released <br />{props.release_date}</p>
+            <p>Released <br />{props.movie.release_date}</p>
           </div>
         </div>
       </div>
