@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MoviesGrid from "./MoviesGrid";
 
-function Main(props) {
+function MainPage(props) {
   const query = props.query;
   const movies = props.movies;
 
@@ -14,4 +14,4 @@ function Main(props) {
   );
 }
 
-export default Main;
+export default MainPage;
