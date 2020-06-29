@@ -17,7 +17,10 @@ function Navigation(props) {
           <Nav.Link href="#pricing">Series</Nav.Link>
         </Nav>
 
-        <DropDown />
+        <DropDown
+          handleGenreChange={props.handleGenreChange}
+          genreList={props.genreList}
+        />
         <SearchBox
           handleSubmit={props.handleSubmit}
           handleChange={props.handleChange}
