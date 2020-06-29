@@ -9,7 +9,7 @@ export default function MoviesGrid(props) {
       <Row lg={3} md={4} xs={12}>
         {props.movies.map(movie => (
           <Col key={movie.id}>
-            <MovieItem movie={movie} />
+            <MovieItem movie={movie} setMovieId={props.setMovieId} />
           </Col>
         ))}
       </Row>

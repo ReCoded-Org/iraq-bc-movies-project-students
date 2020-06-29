@@ -9,7 +9,8 @@ export default function MovieItem(props) {
 
 
   return (
-    <Card key={props.movie.id} style={{ width: "50%" }}>
+    <Card key={props.movie.id} style={{ width: "50%" }} 
+    onClick={() => props.setMovieId(props.movie.id)}>
       <div class="card image">
         <Card.Img src={props.movie.backdrop_path !== null
           ? baseUrl + props.movie.backdrop_path

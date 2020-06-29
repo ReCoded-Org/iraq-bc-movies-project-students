@@ -9,7 +9,7 @@ function Main(props) {
 
   return (
     <React.Fragment>
-      {movies.length > 0 && <MoviesGrid movies={movies} />}
+      { movies.length > 0 && <MoviesGrid movies={movies} setMovieId={props.setMovieId} />}
     </React.Fragment>
   );
 }
