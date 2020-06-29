@@ -15,9 +15,9 @@ function App() {
 
   const handleMovies = (movies) => {
     setMovies(movies);
-    console.log("moveis handle is working ");
+    
   };
-  console.log(movies);
+ 
 
   return (
     <>

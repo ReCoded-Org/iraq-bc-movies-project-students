@@ -10,8 +10,9 @@ export default function MovieGrid(props) {
     <>
       <div className="row mt-3">
         {movies.map((movie) => (
-          <ul key={movie.id}>
-            <MovieItem
+          
+            <MovieItem 
+              
               image={movie.poster_path}
               title={movie.title}
               overview={movie.overview}
@@ -19,7 +20,7 @@ export default function MovieGrid(props) {
               release_date={movie.release_date}
               
             />
-          </ul>
+          
         ))}
       </div>
     </>

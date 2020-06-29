@@ -1,5 +1,5 @@
-import React, { Component, useEffect ,useState } from "react";
-import "react-bootstrap";
+import React, {  useEffect ,useState } from "react";
+
 import { Spinner, Form, FormControl, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import DropdownMenu from "./Dropdown"
@@ -11,8 +11,7 @@ export default function Search(props) {
     setSearchValue(event.target.value);
   };
   const changeCategory = (category) => {
-    console.log(category);
-    //props.setIsLoading(true);
+  
     setCategory(category.id);
   };
   const onSubmit = (e) => {

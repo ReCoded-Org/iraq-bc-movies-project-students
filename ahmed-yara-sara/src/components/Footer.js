@@ -14,8 +14,8 @@ class FooterBar extends Component {
     return (
       <footer className="pt-4 my-md-5 pt-md-5 border-top bg-dark page-footer">
         <div className="text-center text-light">
-          {" "}
-          <h3>This Website was made by</h3>{" "}
+          
+          <h3>This Website was made by</h3>
         </div>
         <br></br>
         <br></br>
@@ -24,7 +24,7 @@ class FooterBar extends Component {
             <div className="col-6 col-md-4 ">
               <h5 className="text-center text-light">Ahmed Al-kheerow</h5>
               <p className="text-center text-primary">
-                Nice and very energized guy, you can always see his smile{" "}
+                Nice and very energized guy, you can always see his smile
               </p>
 
               <ul className="pagination align-center justify-content-center">
