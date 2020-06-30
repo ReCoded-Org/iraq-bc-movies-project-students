@@ -6,13 +6,12 @@ import MainPage from "./Components/MainPage";
 import MoviePage from "./Components/MoviePage";
 import Footer from "./Components/Footer";
 import "react-simple-flex-grid/lib/main.css";
-import { BrowserRouter as Router,Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
-  // const [movieId, setMovieId] = useState('');
 
   const handleQuery = (query) => {
     setQuery(query);
@@ -34,32 +33,17 @@ function App() {
         />
         <Router>
           <Switch>
-
-
-            {/* <Route path="/Movie/:id" component={MoviePage}/>
-            <React path="/Movie"> <MoviePage id={"jdhfhdsb"}/></React> */}
-
-
-
-
-            <Route path="/" exact > <MainPage
-          isLoading={isLoading}
-          setIsLoading={setIsLoading}
-          movies={movies}
-          query={query}
-          // setMovieId={setMovieId}
-        /></Route>
-        <Route path="/Movie/:id" component={MoviePage}
-        //  movieId={movieId} setMovieId={setMovieId}
-          />
-         
-          
+            <Route path="/" exact>
+              <MainPage
+                isLoading={isLoading}
+                setIsLoading={setIsLoading}
+                movies={movies}
+                query={query}
+              />
+            </Route>
+            <Route path="/Movie/:id" component={MoviePage} />
           </Switch>
         </Router>
-
-        {/* {movieId != '' && } */}
-
-        {/* {movieId == '' && } */}
       </div>
       <Footer />
     </div>

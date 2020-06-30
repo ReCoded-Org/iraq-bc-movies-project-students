@@ -6,13 +6,13 @@ import { Row, Col } from "react-bootstrap";
 export default function MoviesGrid(props) {
   return (
     <Container>
-      <Row md={4} lg={3} xs={12}>   {props.movies.map(movie => (
+      <Row md={4} lg={3} xs={12}>
+        {props.movies.map((movie) => (
           <Col key={movie.id}>
-            <MovieItem movie={movie} 
-            // setMovieId={props.setMovieId}
-             />
+            <MovieItem movie={movie} />
           </Col>
-        ))}</Row>
+        ))}
+      </Row>
     </Container>
   );
 }
