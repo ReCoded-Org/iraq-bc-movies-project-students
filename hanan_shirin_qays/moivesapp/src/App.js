@@ -11,7 +11,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
-  const [movieId, setMovieId] = useState('');
+  const [movieId, setMovieId] = useState("");
 
   const handleQuery = (query) => {
     setQuery(query);
@@ -31,15 +31,19 @@ function App() {
           isLoading={isLoading}
           setIsLoading={setIsLoading}
         />
-                  {movieId!='' && <MoviePage movieId={movieId}  setMovieId={setMovieId}/>}
+        {movieId != "" && (
+          <MoviePage movieId={movieId} setMovieId={setMovieId} />
+        )}
 
-       { movieId=='' && <MainPage
-          isLoading={isLoading}
-          setIsLoading={setIsLoading}
-          movies={movies}
-          query={query}
-          setMovieId={setMovieId}
-        />}
+        {movieId == "" && (
+          <MainPage
+            isLoading={isLoading}
+            setIsLoading={setIsLoading}
+            movies={movies}
+            query={query}
+            setMovieId={setMovieId}
+          />
+        )}
       </div>
       <Footer />
     </div>
