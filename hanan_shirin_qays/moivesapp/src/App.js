@@ -2,14 +2,16 @@ import React, { useState } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 import Navbar from "./Components/Navbar";
-import Main from "./Components/Main";
+import MainPage from "./Components/MainPage";
 import Footer from "./Components/Footer";
 import "react-simple-flex-grid/lib/main.css";
+import MoviePage from "./Components/MoviePage";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
+  const [movieId, setMovieId] = useState('');
 
   const handleQuery = (query) => {
     setQuery(query);
@@ -29,12 +31,15 @@ function App() {
           isLoading={isLoading}
           setIsLoading={setIsLoading}
         />
-        <Main
+                  {movieId!='' && <MoviePage movieId={movieId}  setMovieId={setMovieId}/>}
+
+       { movieId=='' && <MainPage
           isLoading={isLoading}
           setIsLoading={setIsLoading}
           movies={movies}
           query={query}
-        />
+          setMovieId={setMovieId}
+        />}
       </div>
       <Footer />
     </div>
