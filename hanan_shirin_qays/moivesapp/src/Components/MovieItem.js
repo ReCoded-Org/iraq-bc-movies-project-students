@@ -6,41 +6,48 @@ export default function MovieItem(props) {
   const baseUrl = "https://image.tmdb.org/t/p/w500/";
   const nullPhoto =
     "https://image.tmdb.org/t/p/w500/wwemzKWzjKYJFfCeiB57q3r4Bcm.png";
+
   return (
-    <Card key={props.id} style={{ width: "50%" }}>
-      <div class="card image">
+    <a href={`Movie/${props.movie.id}`}>
+    <Card
+      key={props.movie.id}
+      style={{ width: "50%" }}
+      // onClick={() => props.setMovieId(props.movie.id)}
+    >
+      <div className="card image">
         <Card.Img
           src={
-            props.backdrop_path !== null
-              ? baseUrl + props.backdrop_path
+            props.movie.backdrop_path !== null
+              ? baseUrl + props.movie.backdrop_path
               : nullPhoto
           }
         />
         <React.Fragment>
-          <h6 class="center datails">
-            {props.title}
+          <h6 className="center datails">
+            {props.movie.title}
             <br />
             <span>
               Vote Average:{" "}
               <ReactStars
                 count={10}
-                value={props.vote_average}
+                value={props.movie.vote_average}
                 size={14}
                 color2={"#ffd700"}
               />{" "}
-              ({props.vote_average})
+              ({props.movie.vote_average})
             </span>
           </h6>
         </React.Fragment>
-        <div class="details">
-          <div class="center">
+        <div className="details">
+          <div className="center">
             <p>
               Released <br />
-              {props.release_date}
+              {props.movie.release_date}
             </p>
           </div>
         </div>
       </div>
     </Card>
+    </a>
   );
 }

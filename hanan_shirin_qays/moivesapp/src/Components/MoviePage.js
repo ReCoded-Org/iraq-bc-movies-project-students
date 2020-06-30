@@ -6,11 +6,24 @@ import MoviesGrid from "./MoviesGrid";
 export default function MoviePage(props) {
   const [movie, setMovie] = useState("");
   let SEARCH_URL;
-  let movie_id = props.movieId;
+  // let props={
+  //   match:{
+  //     params:
+  //     {id:'hgdyf'}
+  //   }
+  // }
+  console.log(props.match);
+
+  let movie_id = props.match.params.id;
+console.log(movie_id);
 
   useEffect(async () => {
     SEARCH_URL = constructUrl(`movie/${movie_id}`);
-
+    // const res=await fetch(SEARCH_URL)
+    // const data = await res.json();
+    // fetch(SEARCH_URL)
+    // .then(res=>res.json())
+    // .then(data=>setMovie(data))
     let res = await fetch(SEARCH_URL);
     let data = await res.json();
     setMovie(data);
@@ -19,7 +32,7 @@ export default function MoviePage(props) {
   return (
     <>
       <Button variant="secondary">
-        <a href="./MoviesGrid.js" style={{ color: "white" }}>
+        <a href="/" style={{ color: "white" }}>
           Go Back
         </a>
       </Button>
