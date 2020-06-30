@@ -10,7 +10,7 @@ function App() {
   const [movieList, setMovieList] = useState([]);
   const [searchedTerm, setSearchedTerm] = useState("");
   const [genreList, setGenreList] = useState([]);
-  const [genreId, setGenreId] = useState('');
+  const [genreId, setGenreId] = useState(28);
 
   const TMDB_BASE_URL = "https://api.themoviedb.org/3";
   const constructUrl = (query) => {
@@ -27,8 +27,8 @@ function App() {
       .then((genres) => {
         setGenreList(genres.genres);
         //console.log(genreList);
-      });
-  });
+      })
+  },[]);
 
   function handleGenreChange(evt) {
     setGenreId(evt.target.value);
