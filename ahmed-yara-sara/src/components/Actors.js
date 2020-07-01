@@ -8,8 +8,10 @@ import MovieDetails from "./MovieDetails"
 import {useHistory} from "react-router";
 import Production from "./Production";
 export default function Actors(props) {
+
+  // console.log("this is props" , props.match);
     const history = useHistory();
-    
+    // let movie_id=props.match.params.id;
     const [movie,setActor]=useState("");
 const TMDB_BASE_URL = "https://api.themoviedb.org/3";
   const constructUrl = (path, query) => {
@@ -18,14 +20,13 @@ const TMDB_BASE_URL = "https://api.themoviedb.org/3";
     )}&query=${query}`;
   }
     
-      useEffect(async()=>{
-        URL = constructUrl(`/person/{person_id}`);
-        let res= await fetch(URL)
-        let data=await res.json();
-        setActor(data);
-        console.log(data)
-        
-      });
+      // useEffect(async()=>{
+      //   URL = constructUrl(`/movie/${movie_id}/credits`);
+      //   let res= await fetch(URL)
+      //   let data=await res.json();
+      //   setActor(data);
+      //   console.log(data)
+      // });
       
      
       
