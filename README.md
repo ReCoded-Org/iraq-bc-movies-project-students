@@ -6,6 +6,46 @@ This project uses The Movie DB API: `https://api.themoviedb.org/3`. It is up to
 you to use your Google and Postman skills to explore the API and understand the
 data.
 
+# Version 5
+Updated at July 1 5:00 pm
+### What to do in class
+- build an actor info page and add it to the router (it should have its own path like `/people/${actor_id}`) so when the user clicks on any actor inside the movie page it should take him to that page and fetch the actor informations.
+- when you launch your website fetch the popular movies first and then when you do any searching replace those popular movies with the ones you searched for.
+- add your search query to the url like `mydomain.com/search?query=deadpool` and if the user types this url in the browser it should show the main page and search for whatever in the `query` in the url and show the results for that.
+
+# Version 4
+updated at Jun 29 6:00 pm
+### What to do in class
+- Load the genres when the app loads, use the useEffect hook to fetch them.
+- Create a MoviePage component. The component will be mounted when the user clicks a movie item in the grid. The grid should hide.
+- In the MoviePage, use the effect hook to load the movie based on the movie_id prop.
+- The MoviePage component should have a back button that when clicked, will return to the grid view.
+- It is preferable that you use async/await to load the movie inside the MoviePage component.
+
+### Homework
+In class, you have created a 2 pages application. The first page is the MovieGrid, the second one is the MoviePage. While this approach works, but for large applications with many pages, we require a routing library that makes things easier for us.
+
+Let’s explore the react-router-dom library, and refactor our app to use this library and make our pages routing professional.
+
+Tasks: 
+- When the user clicks a movie item it should go to `/movie/${movie.title}` using the react-router and render the movie page which is basically the `MoviePage` component
+- When the user goes back using the browser’s back button, the app should send him to the previous page.
+- When the user clicks the logo or home button, it should also send them to the grid or main page
+- Organize the content inside the movie info and you should at least have an
+    - Image
+    - Title
+    - Release date
+    - Overview
+    - rate
+    - Genres (you will need to fetch all the genres and do some comparison do get the name of the genres)
+    - Trailers of this movie (which will include another fetch)
+    - Actors of this movie (which will include another fetch)
+### Style
+Be creative here it is your project, make it stand out!
+	
+
+
+
 # Version 3
 updated at Jun 27 2:00 pm
 ### What to do in class
