@@ -42,7 +42,11 @@ function App() {
             {/* <Route path="/iraq-bc-movies-project-students">
               <Redirect to="/"></Redirect>
             </Route> */}
-             <Route exact path={process.env.PUBLIC_URL +"/"}>
+            <Route
+              path="/iraq-bc-movies-project-students/Movie/:id"
+              component={MoviePage}
+            />
+            <Route exact path="/iraq-bc-movies-project-students/">
               <MainPage
                 isLoading={isLoading}
                 setIsLoading={setIsLoading}
