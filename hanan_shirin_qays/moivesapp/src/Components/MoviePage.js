@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { constructUrl } from "./Api";
 import { Button, Badge, Container, Col, Row } from "react-bootstrap";
-// import ReactPlayer from "react-player";
+import ReactPlayer from "react-player";
 
 export default function MoviePage(props) {
   const [movie, setMovie] = useState("");
@@ -52,59 +52,62 @@ export default function MoviePage(props) {
     movie.backdrop_path !== null ? baseUrl + movie.backdrop_path : nullPhoto;
   const posterImage =
     movie.poster_path !== null ? baseUrl + movie.poster_path : nullPhoto;
-  return (
-    <>
-      <img
-        alt="movieImage"
-        src={
-          movie.backdrop_path !== null
-            ? baseUrl + movie.backdrop_path
-            : nullPhoto
-        }
-      />
-      <Button variant="secondary">
-        <a href="/" style={{ color: "white", textDecoration: "none" }}>
-          Back
-        </a>
-      </Button>
-      <Container>
-        <Row>
-          <img className="col-4" alt="posterImage" src={posterImage} />
-          <div className="col-8 text-white">
-            <h5>{movie.original_title}</h5>
+    return (
+      <div style={{backgroundImage:`url(${moiveImage})`,backgroundSize:"cover"}}>
 
-            <h5>{movie.release_date}</h5>
-            <h5>{movie.overview}</h5>
-            <h5>{movie.vote_average}</h5>
-
-            {movie.genres
-              ? movie.genres.map((genre) => {
-                  return (
-                    <Badge
-                      style={{ marginRight: "20px", marginLeft: "10px" }}
-                      variant="warning"
-                    >
-                      {genre.name}
-                    </Badge>
-                  );
-                })
-              : null}
-            <div className=" text-white">
-              {actors.map((actor) => {
-                return <Badge style={{ marginLeft: "10px" }}>{actor}</Badge>;
-              })}
+        {/* <img
+          alt="movieImage"
+          src={
+            movie.backdrop_path !== null
+              ? baseUrl + movie.backdrop_path
+              : nullPhoto
+          }
+        /> */}
+        <Button variant="secondary">
+          <a
+            href="/iraq-bc-movies-project-students/"
+            style={{ color: "white", textDecoration: "none" }}
+          >
+            Back
+          </a>
+        </Button>
+        <Container>
+          <Row>
+            <img className="col-4" alt="posterImage" src={posterImage} />
+            <div className="col-8 text-white">
+              <h5>{movie.original_title}</h5>
+  
+              <h5>{movie.release_date}</h5>
+              <h5>{movie.overview}</h5>
+              <h5>{movie.vote_average}</h5>
+  
+              {movie.genres
+                ? movie.genres.map((genre) => {
+                    return (
+                      <Badge
+                        style={{ marginRight: "20px", marginLeft: "10px" }}
+                        variant="warning"
+                      >
+                        {genre.name}
+                      </Badge>
+                    );
+                  })
+                : null}
+              <div className=" text-white">
+                {actors.map((actor) => {
+                  return <Badge style={{ marginLeft: "10px" }}>{actor}</Badge>;
+                })}
+              </div>
             </div>
-          </div>
-        </Row>
-
-        {/* <Container className={"mx-auto p-2"}>
-          {/* <ReactPlayer className={"mx-auto"} url={trailers[0]} />
-        </Container>
-        {/* {trailers.map((video, index) => {
-          return <ReactPlayer key={`haha-${index}`} url={video} />;
+          </Row>
+  
+          <Container className={"mx-auto p-2"}>
+            <ReactPlayer className={"mx-auto"} url={trailers[0]} />
+          </Container>
+          {/* {trailers.map((video, index) => {
+          return         <ReactPlayer key={`haha-${index}`} url={video} /> ;
         })} */}
-      </Container>{" "}
-      */
-    </>
+        </Container>
+      </div>
   );
 }
