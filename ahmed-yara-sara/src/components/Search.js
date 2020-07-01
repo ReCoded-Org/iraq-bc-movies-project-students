@@ -38,6 +38,7 @@ export default function Search(props) {
       .then((movies) => movies.json())
       .then((data) => {
         props.getMoviesOnSearch(data.results);
+        console.log(data.results)
       });
   }
 
