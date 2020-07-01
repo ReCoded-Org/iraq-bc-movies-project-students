@@ -38,11 +38,14 @@ function App() {
         />
         <Router>
           <Switch>
-            <Route path="/iraq-bc-movies-project-students">
+            {/* <Route path="/iraq-bc-movies-project-students">
               <Redirect to="/"></Redirect>
-            </Route>
-            <Route exact path="/Movie/:id" component={MoviePage} />
-            <Route exact path="/">
+            </Route> */}
+            <Route
+              path="/iraq-bc-movies-project-students/Movie/:id"
+              component={MoviePage}
+            />
+            <Route exact path="/iraq-bc-movies-project-students/">
               <MainPage
                 isLoading={isLoading}
                 setIsLoading={setIsLoading}

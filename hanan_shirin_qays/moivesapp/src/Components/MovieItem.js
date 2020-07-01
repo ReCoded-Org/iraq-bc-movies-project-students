@@ -8,7 +8,7 @@ export default function MovieItem(props) {
     "https://image.tmdb.org/t/p/w500/wwemzKWzjKYJFfCeiB57q3r4Bcm.png";
 
   return (
-    <a href={`/Movie/${props.movie.id}`}>
+    <a href={`/iraq-bc-movies-project-students/Movie/${props.movie.id}`}>
       <Card key={props.movie.id} style={{ width: "100%" }}>
         <div className="card image">
           <Card.Img
