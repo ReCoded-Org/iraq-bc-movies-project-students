@@ -6,6 +6,7 @@ import MainPage from "./Components/MainPage";
 import MoviePage from "./Components/MoviePage";
 import Footer from "./Components/Footer";
 import "react-simple-flex-grid/lib/main.css";
+import {PATH_PREFIX} from './Components/Constants'
 import {
   BrowserRouter as Router,
   Switch,
@@ -38,11 +39,10 @@ function App() {
         />
         <Router>
           <Switch>
-            <Route path="/iraq-bc-movies-project-students">
+            {/* <Route path="/iraq-bc-movies-project-students">
               <Redirect to="/"></Redirect>
-            </Route>
-            <Route exact path="/Movie/:id" component={MoviePage} />
-            <Route exact path="/">
+            </Route> */}
+             <Route exact path={process.env.PUBLIC_URL +"/"}>
               <MainPage
                 isLoading={isLoading}
                 setIsLoading={setIsLoading}
@@ -50,6 +50,8 @@ function App() {
                 query={query}
               />
             </Route>
+            <Route  path={process.env.PUBLIC_URL +"/Movie/:id"} component={MoviePage} />
+           
           </Switch>
         </Router>
       </div>
