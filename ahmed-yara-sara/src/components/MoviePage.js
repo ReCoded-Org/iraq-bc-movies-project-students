@@ -47,12 +47,12 @@ const TMDB_BASE_URL = "https://api.themoviedb.org/3";
             <MovieDetails details={movie}></MovieDetails>
             <Production details={movie}></Production>
         
-        <Link to="/" >
+        
         <div className="navigationButtonsLeft">
         <button  onClick={handlegoBack}>Go Back</button>
         
         </div>
-        </Link>
+        
         </div>
    </>
   );
