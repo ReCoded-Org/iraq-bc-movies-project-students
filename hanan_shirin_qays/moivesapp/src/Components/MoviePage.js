@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { constructUrl } from "./Api";
 import { Button, Badge, Container, Col, Row } from "react-bootstrap";
-import ReactPlayer from "react-player";
+// import ReactPlayer from "react-player";
 
 export default function MoviePage(props) {
   const [movie, setMovie] = useState("");
@@ -63,10 +63,7 @@ export default function MoviePage(props) {
         }
       />
       <Button variant="secondary">
-        <a
-          href="/iraq-bc-movies-project-students/"
-          style={{ color: "white", textDecoration: "none" }}
-        >
+        <a href="/" style={{ color: "white", textDecoration: "none" }}>
           Back
         </a>
       </Button>
@@ -100,13 +97,14 @@ export default function MoviePage(props) {
           </div>
         </Row>
 
-        <Container className={"mx-auto p-2"}>
-          <ReactPlayer className={"mx-auto"} url={trailers[0]} />
+        {/* <Container className={"mx-auto p-2"}>
+          {/* <ReactPlayer className={"mx-auto"} url={trailers[0]} />
         </Container>
         {/* {trailers.map((video, index) => {
-        return         <ReactPlayer key={`haha-${index}`} url={video} /> ;
-      })} */}
-      </Container>
+          return <ReactPlayer key={`haha-${index}`} url={video} />;
+        })} */}
+      </Container>{" "}
+      */
     </>
   );
 }

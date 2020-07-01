@@ -6,19 +6,13 @@ export default function Navbar1(props) {
   return (
     <div>
       <Navbar bg="dark" expand="lg">
-        <Navbar.Brand
-          href="/iraq-bc-movies-project-students/"
-          style={{ color: "white" }}
-        >
+        <Navbar.Brand href="/" style={{ color: "white" }}>
           React Movies App
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-Navbar-nav" />
         <Navbar.Collapse id="basic-Navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link
-              href="/iraq-bc-movies-project-students/"
-              style={{ color: "white" }}
-            >
+            <Nav.Link href="/" style={{ color: "white" }}>
               Home
             </Nav.Link>
           </Nav>
