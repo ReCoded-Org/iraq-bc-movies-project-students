@@ -53,15 +53,17 @@ export default function MoviePage(props) {
   const posterImage =
     movie.poster_path !== null ? baseUrl + movie.poster_path : nullPhoto;
   return (
-    <>
-      <img
-        alt="movieImage"
-        src={
-          movie.backdrop_path !== null
-            ? baseUrl + movie.backdrop_path
-            : nullPhoto
-        }
-      />
+    <div
+      style={{ backgroundImage: `url(${moiveImage})`, backgroundSize: "cover" }}
+    >
+      {/* <img
+          alt="movieImage"
+          src={
+            movie.backdrop_path !== null
+              ? baseUrl + movie.backdrop_path
+              : nullPhoto
+          }
+        /> */}
       <Button variant="secondary">
         <a
           href="/iraq-bc-movies-project-students/"
@@ -101,13 +103,12 @@ export default function MoviePage(props) {
         </Row>
 
         {/* <Container className={"mx-auto p-2"}>
-          {/* <ReactPlayer className={"mx-auto"} url={trailers[0]} />
-        </Container>
+          <ReactPlayer className={"mx-auto"} url={trailers[0]} />
+        </Container> */}
         {/* {trailers.map((video, index) => {
-          return <ReactPlayer key={`haha-${index}`} url={video} />;
+          return         <ReactPlayer key={`haha-${index}`} url={video} /> ;
         })} */}
-      </Container>{" "}
-      */
-    </>
+      </Container>
+    </div>
   );
 }
