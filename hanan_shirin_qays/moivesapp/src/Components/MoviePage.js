@@ -58,7 +58,10 @@ export default function MoviePage(props) {
         }
       />
       <Button variant="secondary">
-        <a href="/" style={{ color: "white", textDecoration: "none" }}>
+        <a
+          href="/iraq-bc-movies-project-students/"
+          style={{ color: "white", textDecoration: "none" }}
+        >
           Back
         </a>
       </Button>

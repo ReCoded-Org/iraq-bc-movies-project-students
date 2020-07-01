@@ -33,7 +33,7 @@ function App() {
         />
         <Router>
           <Switch>
-            <Route path="/" exact>
+            <Route path="/iraq-bc-movies-project-students/" exact>
               <MainPage
                 isLoading={isLoading}
                 setIsLoading={setIsLoading}
@@ -41,7 +41,10 @@ function App() {
                 query={query}
               />
             </Route>
-            <Route path="/Movie/:id" component={MoviePage} />
+            <Route
+              path="/iraq-bc-movies-project-students/Movie/:id"
+              component={MoviePage}
+            />
           </Switch>
         </Router>
       </div>
