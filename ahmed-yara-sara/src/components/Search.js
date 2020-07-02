@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Spinner, Form, FormControl, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 export default function Search(props) {
-  const [isSubmitted, submitForm] = React.useState(false);
+  const [isLoading, setLoadingStatus] = React.useState(false);
   const [searchValue, setSearchValue] = React.useState("");
   const TMDB_BASE_URL = "https://api.themoviedb.org/3";
   const constructUrl = (path, query) => {
@@ -16,16 +16,12 @@ export default function Search(props) {
   };
   const onSubmit = (e) => {
     e.preventDefault();
-    submitForm(true);
+    setLoadingStatus(true);
     fetchMoives();
   };
   React.useEffect(() => {
     fetchMoives();
-    if (isSubmitted)
-      setTimeout(() => {
-        submitForm(false);
-      }, 3000);
-  }, [isSubmitted]);
+  }, [isLoading]);
 
   function fetchMoives() {
     let URL;
@@ -38,7 +34,7 @@ export default function Search(props) {
       .then((movies) => movies.json())
       .then((data) => {
         props.getMoviesOnSearch(data.results);
-        console.log(data.results)
+        setLoadingStatus(false);
       });
   }
 
@@ -52,8 +48,11 @@ export default function Search(props) {
         className="mr-sm-2"
       />
       <Button variant="outline-info" type="submit">
-        {!isSubmitted && "Search"}
-        {isSubmitted && <Spinner size="sm" animation="border" variant="info" />}
+        {isLoading ? (
+          <Spinner size="sm" animation="border" variant="info" />
+        ) : (
+          "Search"
+        )}
       </Button>
     </Form>
   );
