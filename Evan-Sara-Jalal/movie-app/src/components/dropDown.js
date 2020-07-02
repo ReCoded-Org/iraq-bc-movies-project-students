@@ -10,7 +10,11 @@ const DropDown = props => {
 
   return (
     <React.Fragment>
-      <Form.Control as="select" onChange={props.handleGenreChange}>
+      <Form.Control
+        as="select"
+        onChange={props.handleGenreChange}
+        className="drop-down"
+      >
         {props.genreList.map(genre => {
           return (
             <option id={genre.id} key={genre.id} value={genre.id}>
@@ -20,6 +24,11 @@ const DropDown = props => {
         })}
       </Form.Control>
       {/* <Button onClick={fetchGeneres}> change genere</Button> */}
+      {/* 
+      
+      
+      
+      */}
     </React.Fragment>
 
     // <React.Fragment>

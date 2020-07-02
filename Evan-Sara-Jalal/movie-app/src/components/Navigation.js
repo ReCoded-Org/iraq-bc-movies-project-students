@@ -21,6 +21,7 @@ function Navigation(props) {
           handleGenreChange={props.handleGenreChange}
           genreList={props.genreList}
         />
+
         <SearchBox
           handleSubmit={props.handleSubmit}
           handleChange={props.handleChange}

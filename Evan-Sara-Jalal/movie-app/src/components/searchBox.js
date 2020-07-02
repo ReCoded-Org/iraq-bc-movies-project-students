@@ -17,31 +17,34 @@ function SearchBox(props) {
     <>
       <Form
         inline
-        onSubmit={(evt) => {
+        className="search-box"
+        onSubmit={evt => {
           evt.preventDefault();
           handleSubmit();
           props.handleSubmit();
         }}
         expand="md"
       >
-        <FormControl
-          onChange={props.handleChange}
-          type="text"
-          placeholder="Search"
-          className="mr-sm-2"
-          onKeyDown={handleOnKeyDown}
-          expand="md"
-        />
-
-        <Button type="submit" variant="outline-light">
-          <Spinner
-            animation="grow"
-            variant="danger"
-            size="sm"
-            hidden={isHidden}
+        <div>
+          <FormControl
+            onChange={props.handleChange}
+            type="text"
+            placeholder="Search"
+            className="mr-sm-2"
+            onKeyDown={handleOnKeyDown}
+            expand="md"
           />
-          Search
-        </Button>
+
+          <Button type="submit" variant="outline-light">
+            <Spinner
+              animation="grow"
+              variant="danger"
+              size="sm"
+              hidden={isHidden}
+            />
+            Search
+          </Button>
+        </div>
       </Form>
     </>
   );
