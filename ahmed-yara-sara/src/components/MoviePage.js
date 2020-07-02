@@ -43,7 +43,7 @@ export default function MoviePage(props) {
       <div className="d-flex flex-column mx-auto align-items-center">
         <Image image={movie.poster_path}></Image>
         <li>
-          <a href={movie.homepage}>homepage</a>
+          <a href={movie.homepage}>Go To Movie Page</a>
         </li>
 
         <MovieDetails details={movie}></MovieDetails>
