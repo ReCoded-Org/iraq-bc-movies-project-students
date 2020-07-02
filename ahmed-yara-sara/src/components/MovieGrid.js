@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import MovieItem from "./MovieItem";

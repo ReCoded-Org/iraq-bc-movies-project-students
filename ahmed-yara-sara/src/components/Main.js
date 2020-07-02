@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from "react";
+import React from "react";
 import MovieGrid from "./MovieGrid";
 function Main(props) {
   return (

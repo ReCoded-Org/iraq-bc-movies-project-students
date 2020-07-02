@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-import { fa } from "@fortawesome/fontawesome-free";
 import {
   faFacebookSquare,
   faTwitterSquare,
@@ -14,7 +12,6 @@ class FooterBar extends Component {
     return (
       <footer className="pt-4 my-md-5 pt-md-5 border-top bg-dark page-footer">
         <div className="text-center text-light">
-          
           <h3>This Website was made by</h3>
         </div>
         <br></br>

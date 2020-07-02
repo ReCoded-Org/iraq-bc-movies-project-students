@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import { Card, Button, Col } from "react-bootstrap";
-import MovieGrid from "./MovieGrid";
+import React from "react";
+import { Card, Col } from "react-bootstrap";
 function MovieItem(props) {
   const { title, overview, popularity, release_date } = props;
   return (
