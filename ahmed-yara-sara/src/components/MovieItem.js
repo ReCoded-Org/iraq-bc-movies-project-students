@@ -4,18 +4,31 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 function MovieItem(props) {
   const { title, overview, popularity, release_date } = props;
   const [select, onSelect] = useState("");
+  let randColor = [
+    "primary",
+    "secondary",
+    "danger",
+    "warning",
+    "success",
+    "dark",
+    "info",
+  ];
   function setMovieId() {
     onSelect(props.id);
     console.log(props.id);
   }
   return (
     <>
-      <a href={`Movie/${props.id}`}>
-        <ul>
+      <a
+        href={`Movie/${props.id}`}
+        style={{ textDecoration: "none" }}
+        className="d-flex justify-content-center"
+      >
+        <ul style={{ listStyleType: "none" }}>
           <Col>
             <Card
-              className="m-5 p-2"
-              style={{ width: "300px" }}
+              className="m-auto p-2"
+              style={{ width: "400px", color: "black" }}
               onClick={setMovieId}
             >
               <app setMovieId={setMovieId}></app>
@@ -25,9 +38,16 @@ function MovieItem(props) {
               />
               <Card.Body>
                 <li>{title}</li>
-                <li>{overview}</li>
-                <li>{popularity}</li>
-                <li>{release_date}</li>
+                <div>
+                  <span className="badge badge-warning">
+                    Popularity: {popularity}
+                  </span>
+                </div>
+                <div>
+                  <span className="badge badge-info">
+                    Release-Date: {release_date}
+                  </span>
+                </div>
               </Card.Body>
             </Card>
           </Col>

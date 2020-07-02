@@ -45,10 +45,8 @@ export default function MoviePage(props) {
         <li>
           <a href={movie.homepage}>Go To Movie Page</a>
         </li>
-
         <MovieDetails details={movie}></MovieDetails>
         <Production details={movie}></Production>
-
         <div className="navigationButtonsLeft">
           <button onClick={handlegoBack}>Go Back</button>
         </div>
