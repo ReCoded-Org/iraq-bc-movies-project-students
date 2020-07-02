@@ -113,7 +113,8 @@ function MoviePage() {
                   <iframe
                     class="embed-responsive-item"
                     src={`https://www.youtube.com/embed/${trailer.key}`}
-                    allowfullscreen
+                    allowFullScreen
+                    key={trailer.id}
                   />
                 </div>
               );
@@ -132,7 +133,7 @@ function MoviePage() {
               cast.map(actor => {
                 return (
                   <h4 style={{ color: "#333" }}>
-                    {actor.name} ({actor.character})
+          <Link to={`/person/${actor.id}`}>        {actor.name} ({actor.character})</Link>  
                   </h4>
                 );
               })}

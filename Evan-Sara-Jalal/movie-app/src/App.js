@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Navigation from "./components/Navigation";
 import MainComponent from "./components/mainComponent";
+import ActorInfo from './components/ActorInfo'
 import Footer from "./components/Footer";
 import { useState, useEffect } from "react";
 import MoviePage from "./components/moviePage";
@@ -77,6 +78,7 @@ function App() {
               <MainComponent movies={movieList} />
             </Route>
             <Route path="/:id" component={MoviePage} />
+            <Route path='/person/:actor_id' component={ActorInfo}/>
           </Switch>
         </div>
         <Footer />
