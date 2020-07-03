@@ -8,6 +8,7 @@ import MovieDetails from "./MovieDetails";
 import { useHistory } from "react-router";
 import Production from "./Production";
 import Actors from "./Actors";
+import "./style.css"
 export default function MoviePage(props) {
   const history = useHistory();
 
@@ -50,11 +51,14 @@ export default function MoviePage(props) {
         </a>
         <MovieDetails details={movie}></MovieDetails>
         <Production details={movie}></Production>
-        <div className="navigationButtonsLeft">
-          <button onClick={handlegoBack} className="btn btn-dark mt-5">
-            Go Back
-          </button>
-        </div>
+       
+          <a  className=" btn btnNeown" href="#" onClick={handlegoBack}>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Go Back 
+          </a>
       </div>
     </>
   );
