@@ -4,15 +4,6 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 function MovieItem(props) {
   const { title, overview, popularity, release_date } = props;
   const [select, onSelect] = useState("");
-  let randColor = [
-    "primary",
-    "secondary",
-    "danger",
-    "warning",
-    "success",
-    "dark",
-    "info",
-  ];
   function setMovieId() {
     onSelect(props.id);
     console.log(props.id);
@@ -37,16 +28,20 @@ function MovieItem(props) {
                 src={`https://image.tmdb.org/t/p/w500/${props.image}`}
               />
               <Card.Body>
-                <li>{title}</li>
                 <div>
-                  <span className="badge badge-warning">
-                    Popularity: {popularity}
-                  </span>
+                  <li>{title}</li>
                 </div>
-                <div>
-                  <span className="badge badge-info">
-                    Release-Date: {release_date}
-                  </span>
+                <div className="d-flex justify-content-center pt-2">
+                  <div className="m-auto p-2">
+                    <span className="badge badge-warning">
+                      Popularity: {popularity}
+                    </span>
+                  </div>
+                  <div className="m-auto p-2">
+                    <span className="badge badge-info">
+                      Release-Date: {release_date}
+                    </span>
+                  </div>
                 </div>
               </Card.Body>
             </Card>
