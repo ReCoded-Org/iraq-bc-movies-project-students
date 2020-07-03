@@ -15,7 +15,10 @@ export default function DropdownMenu(props) {
       .then((response) => response.json())
       .then((genreData) => {
         if (genreData.genres)
-          setGenres([{ id: 0, name: "All Genres" }, ...genreData.genres]);
+          setGenres([
+            { id: 0, name: "All Trending Today" },
+            ...genreData.genres,
+          ]);
       });
   });
   const handleChange = (e) => {
