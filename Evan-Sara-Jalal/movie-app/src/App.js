@@ -37,13 +37,13 @@ function App() {
       });
   };
 
-  const fetchPopularMovies = () => {
+  const fetchPopularMovies= ()=>{
     fetch(
       `https://api.themoviedb.org/3/movie/popular?api_key=7a757097cf4698b75ed2848485f49571&language=en-US&page=1`
     )
-      .then((resp) => resp.json())
-      .then((resp) => setMovieList(resp.results));
-  };
+      .then(resp => resp.json())
+      .then(resp => setMovieList(resp.results));
+  }
 
   function handleGenreChange(evt) {
     setGenreId(evt.target.value);

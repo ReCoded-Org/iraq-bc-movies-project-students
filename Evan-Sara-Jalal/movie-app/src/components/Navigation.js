@@ -13,7 +13,7 @@ function Navigation(props) {
           {props.name}
         </Navbar.Brand>
         <Nav className="mr-auto">
-          <Nav.Link href="#home">Home</Nav.Link>
+         <Nav.Link href="#home">Home</Nav.Link>  
           <Nav.Link href="#features">Movies</Nav.Link>
           <Nav.Link href="#pricing">Series</Nav.Link>
         </Nav>
