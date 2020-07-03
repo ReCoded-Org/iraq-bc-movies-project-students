@@ -14,6 +14,7 @@ export default function MoviePage(props) {
   const [movie, setMovie] = useState("");
   const [actors, setCast] = useState("");
   const [trailers, setTrailer] = useState("");
+
   let movie_id = props.match.params.id;
   const TMDB_BASE_URL = "https://api.themoviedb.org/3";
   const constructUrl = (path) => {

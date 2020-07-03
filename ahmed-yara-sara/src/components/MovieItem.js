@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Card, Col } from "react-bootstrap";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 function MovieItem(props) {
   const { title, popularity, release_date } = props;
   const [select, onSelect] = useState("");
@@ -17,10 +17,12 @@ function MovieItem(props) {
               style={{ width: "300px", color: "black" }}
             >
               <app setMovieId={setMovieId}></app>
-              <Card.Img
-                variant="top"
-                src={`https://image.tmdb.org/t/p/w500/${props.image}`}
-              />
+              <div className="imageZoom">
+                <Card.Img
+                  variant="top"
+                  src={`https://image.tmdb.org/t/p/w500/${props.image}`}
+                />
+              </div>
               <Card.Body>
                 <div>
                   <p>{title}</p>

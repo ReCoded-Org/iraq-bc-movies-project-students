@@ -1,8 +1,6 @@
-import React, { useEffect } from "react";
-import MovieGrid from "./MovieGrid";
-import MoviePage from "./MoviePage";
-import { Card, Button, Col, ListGroup } from "react-bootstrap";
-import Search from "./Search";
+import React from "react";
+import { Card, ListGroup } from "react-bootstrap";
+
 
 function MovieDetails(props) {
   const { details } = props;
