@@ -23,15 +23,27 @@ function App() {
   };
 
   useEffect(() => {
+    fetchGenres();
+    fetchPopularMovies();
+  }, []);
+
+  const fetchGenres = () => {
     fetch(
       "https://api.themoviedb.org/3/genre/movie/list?api_key=542003918769df50083a13c415bbc602&language=en-US"
     )
       .then((data) => data.json())
       .then((genres) => {
         setGenreList(genres.genres);
-        //console.log(genreList);
       });
-  });
+  };
+
+  const fetchPopularMovies = () => {
+    fetch(
+      `https://api.themoviedb.org/3/movie/popular?api_key=7a757097cf4698b75ed2848485f49571&language=en-US&page=1`
+    )
+      .then((resp) => resp.json())
+      .then((resp) => setMovieList(resp.results));
+  };
 
   function handleGenreChange(evt) {
     setGenreId(evt.target.value);

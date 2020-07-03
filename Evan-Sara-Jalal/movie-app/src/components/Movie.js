@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function Movie(props) {
   return (
     <Col lg={4} md={6} xs={12}>
-      <Card className="m-3" style={{ width: "18rem" }}>
+      <Card className="m-3 scale" style={{ width: "18rem" }}>
         <Card.Img
           variant="top"
           src={`https://image.tmdb.org/t/p/w500/${props.image}`}
@@ -21,7 +21,7 @@ function Movie(props) {
             popularity={props.popularity}
           /> */}
           <Link to={`/${props.id}`}>
-            <Button>ViewDetail</Button>
+            <Button variant='danger'>ViewDetail</Button>
           </Link>
         </Card.Body>
       </Card>
