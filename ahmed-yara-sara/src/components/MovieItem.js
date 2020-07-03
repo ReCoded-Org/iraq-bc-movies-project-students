@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Card, Col } from "react-bootstrap";
-
+import "../style.css";
 function MovieItem(props) {
   const { title, popularity, release_date } = props;
   const [select, onSelect] = useState("");
