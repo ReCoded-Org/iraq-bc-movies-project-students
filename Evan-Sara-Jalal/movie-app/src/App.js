@@ -25,7 +25,7 @@ function App() {
   useEffect(() => {
     fetchGenres();
     fetchPopularMovies();
-  }, []);
+  },  [genreId]);
 
   const fetchGenres = () => {
     fetch(
@@ -42,7 +42,10 @@ function App() {
       `https://api.themoviedb.org/3/movie/popular?api_key=7a757097cf4698b75ed2848485f49571&language=en-US&page=1`
     )
       .then(resp => resp.json())
-      .then(resp => setMovieList(resp.results));
+      .then(resp => {
+        const filtered = resp.results.filter(movie=> movie.genre_ids.includes(parseInt(genreId)))
+        setMovieList(filtered)
+      });
   }
 
   function handleGenreChange(evt) {
