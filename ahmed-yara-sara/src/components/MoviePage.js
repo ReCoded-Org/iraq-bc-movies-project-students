@@ -42,13 +42,18 @@ export default function MoviePage(props) {
     <>
       <div className="d-flex flex-column mx-auto align-items-center">
         <Image image={movie.poster_path}></Image>
-        <li>
-          <a href={movie.homepage}>Go To Movie Page</a>
-        </li>
+        <a
+          href={movie.homepage}
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          <h4> Go To Movie Page</h4>
+        </a>
         <MovieDetails details={movie}></MovieDetails>
         <Production details={movie}></Production>
         <div className="navigationButtonsLeft">
-          <button onClick={handlegoBack}>Go Back</button>
+          <button onClick={handlegoBack} className="btn btn-dark mt-5">
+            Go Back
+          </button>
         </div>
       </div>
     </>
