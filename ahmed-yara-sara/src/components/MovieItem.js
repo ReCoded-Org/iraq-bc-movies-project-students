@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { Card, Col } from "react-bootstrap";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 function MovieItem(props) {
-  const { title, overview, popularity, release_date } = props;
+  const { title,popularity, release_date } = props;
   const [select, onSelect] = useState("");
   function setMovieId() {
     onSelect(props.id);
-    console.log(props.id);
   }
   return (
     <>

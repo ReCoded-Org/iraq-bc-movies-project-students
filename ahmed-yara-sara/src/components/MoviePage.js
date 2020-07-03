@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Card, { CardBody } from "react-bootstrap/Card";
-import Search from "./Search";
-import { Button } from "react-bootstrap";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Image from "./Image";
 import MovieDetails from "./MovieDetails";
 import { useHistory } from "react-router";
 import Production from "./Production";
-import Actors from "./Actors";
 import "./style.css"
 export default function MoviePage(props) {
   const history = useHistory();
@@ -16,7 +11,7 @@ export default function MoviePage(props) {
     history.goBack();
   }
   const [movie, setMovie] = useState("");
-  let t;
+  
   let movie_id = props.match.params.id;
   console.log(movie_id);
   const TMDB_BASE_URL = "https://api.themoviedb.org/3";

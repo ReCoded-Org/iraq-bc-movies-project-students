@@ -1,17 +1,11 @@
-import React, { useEffect } from "react";
-import MovieGrid from "./MovieGrid";
-import MoviePage from "./MoviePage";
-import { Card, Button, Col } from "react-bootstrap";
-import Search from "./Search";
+import React from "react";
+import { Card,} from "react-bootstrap";
+
 
 function Production(props) {
   const { details } = props;
-  console.log(details);
-  let image = `https://image.tmdb.org/t/p/w500/${details.logo_path}`;
-  // let style = {
-  //   borderRadius: "100px",
-  //   width: "300px",
-  // };
+ 
+ 
   return (
     <>
       <h2>Producion Compaines</h2>
