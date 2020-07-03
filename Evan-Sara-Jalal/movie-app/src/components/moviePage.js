@@ -7,7 +7,7 @@ import {
   Col,
   Image,
   Button,
-  ResponsiveEmbed
+  ResponsiveEmbed,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useParams, useHistory, useLocation } from "react-router-dom";
@@ -31,32 +31,26 @@ function MoviePage() {
 
   const fetchMovie = () => {
     fetch(
-      `https://api.themoviedb.org/3/movie/${
-        params.id
-      }?api_key=5ed852ecd6e3943b0c7b922a448cbc9a&language=en-US`
+      `https://api.themoviedb.org/3/movie/${params.id}?api_key=7a757097cf4698b75ed2848485f49571&language=en-US`
     )
-      .then(resp => resp.json())
-      .then(resp => setMovie(resp));
+      .then((resp) => resp.json())
+      .then((resp) => setMovie(resp));
   };
 
   const fetchVideos = () => {
     fetch(
-      `https://api.themoviedb.org/3/movie/${
-        params.id
-      }/videos?api_key=5ed852ecd6e3943b0c7b922a448cbc9a&language=en-US`
+      `https://api.themoviedb.org/3/movie/${params.id}/videos?api_key=7a757097cf4698b75ed2848485f49571&language=en-US`
     )
-      .then(resp => resp.json())
-      .then(resp => setTrailers(resp.results));
+      .then((resp) => resp.json())
+      .then((resp) => setTrailers(resp.results));
   };
 
   const fetchCredits = () => {
     fetch(
-      `https://api.themoviedb.org/3/movie/${
-        params.id
-      }/credits?api_key=5ed852ecd6e3943b0c7b922a448cbc9a`
+      `https://api.themoviedb.org/3/movie/${params.id}/credits?api_key=7a757097cf4698b75ed2848485f49571`
     )
-      .then(resp => resp.json())
-      .then(resp => {
+      .then((resp) => resp.json())
+      .then((resp) => {
         setCast(resp.cast);
       });
   };
@@ -95,7 +89,7 @@ function MoviePage() {
             <hr />
 
             {movie.id &&
-              movie.genres.map(genre => {
+              movie.genres.map((genre) => {
                 return <li key={genre.id}>{genre.name}</li>;
               })}
             <hr />
@@ -107,18 +101,19 @@ function MoviePage() {
           <Col>
             <h2> Trailers</h2>
             <hr />
-            {movie.id&&trailers.map(trailer => {
-              return (
-                <div class="embed-responsive embed-responsive-16by9 mb-4">
-                  <iframe
-                    class="embed-responsive-item"
-                    src={`https://www.youtube.com/embed/${trailer.key}`}
-                    allowFullScreen
-                    key={trailer.id}
-                  />
-                </div>
-              );
-            })}
+            {movie.id &&
+              trailers.map((trailer) => {
+                return (
+                  <div className="embed-responsive embed-responsive-16by9 mb-4">
+                    <iframe
+                      class="embed-responsive-item"
+                      src={`https://www.youtube.com/embed/${trailer.key}`}
+                      allowFullScreen
+                      key={trailer.id}
+                    />
+                  </div>
+                );
+              })}
           </Col>
           {/* src={`https://www.youtube.com/embed/${trailer.key}`} */}
         </Row>
@@ -130,10 +125,13 @@ function MoviePage() {
             <h2>Actors</h2>
             <hr />
             {movie.id &&
-              cast.map(actor => {
+              cast.map((actor) => {
                 return (
-                  <h4 style={{ color: "#333" }}>
-          <Link to={`/person/${actor.id}`}>        {actor.name} ({actor.character})</Link>  
+                  <h4>
+                    <Link style={{ color: "#333" }} to={`/person/${actor.id}`}>
+                      {" "}
+                      {actor.name} ({actor.character})
+                    </Link>
                   </h4>
                 );
               })}

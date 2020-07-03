@@ -7,14 +7,14 @@ function ActorInfo() {
   const [actorInfo, setActorInfo] = useState({});
   useEffect(() => {
     console.log(params);
-    fetchActorInfo();
+    //fetchActorInfo();
   }, []);
 
   const fetchActorInfo = () => {
     fetch(
       `https://api.themoviedb.org/3/person/${
         params.actor_id
-      }?api_key=f0eab3d5554e56521b60b7cd4dcaf4b1&language=en-US&append_to_response=${
+      }?api_key=7a757097cf4698b75ed2848485f49571&language=en-US&append_to_response=${
         params.actor_id
       }`
     )
@@ -44,6 +44,7 @@ function ActorInfo() {
           </Col>
         </Row>
       </Container>
+      <h1>heyyyy</h1>
     </React.Fragment>
   );
 }

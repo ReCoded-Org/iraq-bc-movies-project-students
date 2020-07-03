@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Navigation from "./components/Navigation";
 import MainComponent from "./components/mainComponent";
-import ActorInfo from './components/ActorInfo'
+import ActorInfo from "./components/ActorInfo";
 import Footer from "./components/Footer";
 import { useState, useEffect } from "react";
 import MoviePage from "./components/moviePage";
@@ -16,7 +16,7 @@ function App() {
   const [genreId, setGenreId] = useState(28);
 
   const TMDB_BASE_URL = "https://api.themoviedb.org/3";
-  const constructUrl = query => {
+  const constructUrl = (query) => {
     return `${TMDB_BASE_URL}/search/movie?api_key=${atob(
       "ZDJmYTdhZDFlMjZhZjA4NDdkMzQ5ZDdkYmQ1ZjkzZTU="
     )}&query=${query}`;
@@ -26,8 +26,8 @@ function App() {
     fetch(
       "https://api.themoviedb.org/3/genre/movie/list?api_key=542003918769df50083a13c415bbc602&language=en-US"
     )
-      .then(data => data.json())
-      .then(genres => {
+      .then((data) => data.json())
+      .then((genres) => {
         setGenreList(genres.genres);
         //console.log(genreList);
       });
@@ -44,10 +44,10 @@ function App() {
     // console.log("it is working ");
 
     fetch(constructUrl(searchedTerm))
-      .then(data => data.json())
-      .then(data => {
+      .then((data) => data.json())
+      .then((data) => {
         // console.log(data.results);
-        const filtered = data.results.filter(movie =>
+        const filtered = data.results.filter((movie) =>
           movie.genre_ids.includes(parseInt(genreId))
         );
         setMovieList(filtered);
@@ -78,7 +78,7 @@ function App() {
               <MainComponent movies={movieList} />
             </Route>
             <Route path="/:id" component={MoviePage} />
-            <Route path='/person/:actor_id' component={ActorInfo}/>
+            <Route exact path="/person/:actor_id" component={ActorInfo} />
           </Switch>
         </div>
         <Footer />
