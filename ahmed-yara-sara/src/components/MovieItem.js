@@ -23,10 +23,12 @@ function MovieItem(props) {
               onClick={setMovieId}
             >
               <app setMovieId={setMovieId}></app>
+              <div className="imageZoom">
               <Card.Img
                 variant="top"
                 src={`https://image.tmdb.org/t/p/w500/${props.image}`}
               />
+              </div>
               <Card.Body>
                 <div>
                   <li>{title}</li>
