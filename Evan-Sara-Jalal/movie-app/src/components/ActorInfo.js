@@ -1,13 +1,16 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { Container, Row, Col, Image } from "react-bootstrap";
+import { Container, Row, Col, Image, Button } from "react-bootstrap";
 function ActorInfo() {
   const params = useParams();
+  const history = useHistory();
   const [actorInfo, setActorInfo] = useState({});
+  const [image, setImage] = useState({});
   useEffect(() => {
-    console.log(params);
-    //fetchActorInfo();
+    console.log(history);
+    fetchActorInfo();
+    fetchImages();
   }, []);
 
   const fetchActorInfo = () => {
@@ -22,13 +25,35 @@ function ActorInfo() {
       .then(resp => setActorInfo(resp));
   };
 
+  const fetchImages = () => {
+    fetch(`https://api.themoviedb.org/3/person/${
+      params.actor_id
+    }/images?api_key=7a757097cf4698b75ed2848485f49571
+    `)
+      .then(resp => resp.json())
+      .then(resp => setImage(resp.profiles[0]));
+  };
+
+  const handleClick = () => {
+    history.goBack();
+  };
   return (
     <React.Fragment>
-      <Container>
+      <Container className="margin-top">
+        <Row className="margin-top">
+          <Button onClick={handleClick} variant="danger">
+            Back
+          </Button>{" "}
+        </Row>
         <Row>
           <Col lg={6} md={5} xs={12}>
-            <h1>image goes here</h1>
-            <Image src="holder.js/171x180" rounded />
+            {actorInfo.id && (
+              <Image
+                fluid
+                src={`https://image.tmdb.org/t/p/w500/${image.file_path}`}
+                rounded
+              />
+            )}
           </Col>
           <Col lg={6} md={5} xs={12}>
             <h2>{actorInfo.name}</h2>
@@ -44,7 +69,6 @@ function ActorInfo() {
           </Col>
         </Row>
       </Container>
-      <h1>heyyyy</h1>
     </React.Fragment>
   );
 }

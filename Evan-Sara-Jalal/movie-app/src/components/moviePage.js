@@ -128,7 +128,7 @@ function MoviePage() {
               cast.map((actor) => {
                 return (
                   <h4>
-                    <Link style={{ color: "#333" }} to={`/person/${actor.id}`}>
+                 <Link to={`/person/${actor.id}`}>
                       {" "}
                       {actor.name} ({actor.character})
                     </Link>

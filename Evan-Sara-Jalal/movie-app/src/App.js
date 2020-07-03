@@ -77,8 +77,8 @@ function App() {
               {" "}
               <MainComponent movies={movieList} />
             </Route>
-            <Route path="/:id" component={MoviePage} />
-            <Route exact path="/person/:actor_id" component={ActorInfo} />
+            <Route path="/:id" exact component={MoviePage} />
+            <Route path="/person/:actor_id" component={ActorInfo} />
           </Switch>
         </div>
         <Footer />
