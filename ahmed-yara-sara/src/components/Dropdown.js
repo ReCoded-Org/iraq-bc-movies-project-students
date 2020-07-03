@@ -24,11 +24,19 @@ export default function DropdownMenu(props) {
     fetch(trendingURL)
       .then((response) => response.json())
       .then((genreData) => {
-        props.getMoviesOnChange(
-          genreData.results.filter((movie) => {
-            return movie.genre_ids.includes(parseId);
-          })
-        );
+        if (parseId === 0) {
+          props.getMoviesOnChange(
+            genreData.results.map((movie) => {
+              return movie;
+            })
+          );
+        } else {
+          props.getMoviesOnChange(
+            genreData.results.filter((movie) => {
+              return movie.genre_ids.includes(parseId);
+            })
+          );
+        }
       });
   };
 
