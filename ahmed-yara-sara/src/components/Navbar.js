@@ -10,7 +10,7 @@ export default function movieNavbar(props) {
   return (
     <>
       <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="#home">Movies For You</Navbar.Brand>
+        <Navbar.Brand href="..">Movies For You</Navbar.Brand>
         <Nav className="mr-auto"></Nav>
         <Dropdown getMoviesOnChange={handleMovies}></Dropdown>
         <Search getMoviesOnSearch={handleMovies}></Search>
