@@ -7,7 +7,7 @@ export default function MovieGrid(props) {
 
   return (
     <>
-      <div className="row mt-3">
+      <div className="row  m-0">
         {movies.map((movie) => (
           <MovieItem
             key={movie.id}

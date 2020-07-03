@@ -9,23 +9,18 @@ function MovieItem(props) {
   }
   return (
     <>
-      <div className="d-flex justify-content-center mx-auto my-3">
+      <div className="d-flex flex-row justify-content-center mx-auto my-3">
         <Col>
-          <a
-            href={`Movie/${props.id}`}
-            style={{ textDecoration: "none" }}
-            className="d-flex justify-content-center"
-          >
+          <a href={`Movie/${props.id}`} style={{ textDecoration: "none" }}>
             <Card
               className="m-auto p-2"
-              style={{ width: "400px", color: "black" }}
+              style={{ width: "300px", color: "black" }}
             >
               <app setMovieId={setMovieId}></app>
               <Card.Img
                 variant="top"
                 src={`https://image.tmdb.org/t/p/w500/${props.image}`}
               />
-
               <Card.Body>
                 <div>
                   <p>{title}</p>
