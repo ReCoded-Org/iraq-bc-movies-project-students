@@ -1,119 +1,68 @@
-# Movie Project
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-This is a movie database project, where it shows movies, their casts, ratings, trailers, related movies, genres, and so on.
+## Available Scripts
 
-This project uses The Movie DB API: `https://api.themoviedb.org/3`. It is up to
-you to use your Google and Postman skills to explore the API and understand the
-data.
+In the project directory, you can run:
 
-# Version 3
-updated at Jun 27 2:00 pm
-### What to do in class
-- add a function inside the `app.js` called `handleQuery(query)` it will handle the change of the input in the `SearchBox`, pass it to The `Navbar` component and then pass it to the `SearchBox` component and `onSubmit` of your search form, use this function to pass the search query back to the `app.js` you should pass the query to the `Main` component as a prop too, finally console.log(props.query) inside your `Main` component.
+### `yarn start`
 
-- have another function called `handleMovies(movies)` which will do the same as `handleQuery(query)` function but instead when user Submit the form you should search for the input using the `constructUrl` function passing it the search path and query, and then return the results into the main component using the handler function, read the following points when implementing
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-- use this function with fetch and don’t change it, the `path` is basically whatever your are requesting after the `TMDB_BASE_URL` for example `search/movie`
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
-```jsx
-const constructUrl = (path, query) => {
-  return `${TMDB_BASE_URL}/${path}?api_key=${atob(
-    "ZDJmYTdhZDFlMjZhZjA4NDdkMzQ5ZDdkYmQ1ZjkzZTU="
-  )}&query=${query}`;
-};
-```
+### `yarn test`
 
-- checkout this for more info about the search api endpoint
-  https://developers.themoviedb.org/3/search/search-movies
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-- In the `Main` component send the movies to another component that will render the movies and lets call it `MoviesGrid`.
-- In the `MoviesGrid` map each movie to another component called `MovieItem`.
+### `yarn build`
 
-### Homework
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-- Go to the TMDB documentations and see how you can get all the genres (the categories) and how to get popular movies in this category
-- add a button in the navbar, when clicked it should fetch the genres 
-- Render the genres as options inside the genres dropdown
-- when you change categories from the dropdown it should fetch the popular movies in that category
-- update the grid with the movies you got when selector chenges
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
 
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-# Version 2
+### `yarn eject`
 
-Updated Jun 27, 2:00 pm
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-### What to do in class
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-- Add a Spinner component to the Navbar component and make it invisible by default also pass a function called `onSearch` to the SearchBox and then when you type some text inside the SearchBox component, call it to make the spinner in the Navbar component appears. You can use spinners from here https://react-bootstrap.github.io/components/spinners/
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-### Styling
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-feel free to style the movies list but we suggest making it as a grid and each movie has the poster and title under it, maybe call effect when hovering or something or hide the title and show it when hovering, don't know be creative with it
+## Learn More
 
-### Search Keywords
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-- lifting props react
-- Events in react
-- Events with state
-- handling Forms in react
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-# Version 1
+### Code Splitting
 
-Updated: Jun 22, 2:00 AM
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-# What you and your partners will build in class
+### Analyzing the Bundle Size
 
-## 1. Project Structure
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-Create a new react app inside a directory with your team name as the app name. You can search how to start a new react app using the follwoing keywords.
+### Making a Progressive Web App
 
-### Keywords:
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-- create-react-app
-- npx
+### Advanced Configuration
 
-### Make sure to:
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
-- Add node_modules to `.gitignore`
-- the root directory contains only a directory with your team name and this `README.md` file
+### Deployment
 
----
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-## 2. Homepage
+### `yarn build` fails to minify
 
-### Navbar Component
-
-Add a universal navbar (it appears on every page) to the home page that includes
-buttons that go to the following pages:
-
-- Home button, takes you to the home page.
-- Search box where you can type the movie or actor name and display the
-  related results. Logic will be added later, just add a dummy search bar. **It should be a component.**
-
-### Main Component
-
-Add an empty main section below the navbar and above the footer. It can be empty for now.
-
-### Footer Component
-
-Add a universal footer that includes:
-
-- Credit to you and your partner for building the website,
-- You and your partner's github link inside an icon and optionally, your social
-  media links.
-
-### Styling
-
-- you can style the components yourself, import the stylesheet from JavaScript, not in HTML
-- Optionally: you can use react-bootstrap library. Search on how to install it and get started using it
-
-# Homework
-
-- Style the navbar and search box
-- Add simple functionality to the search box. Whenever you type something, the text inside the input should be logged to the console.
-- The same should happen when you hit enter
-
-### Search Keywords:
-
-- How to handle text input change in react
-- How to handle form submission in react
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
