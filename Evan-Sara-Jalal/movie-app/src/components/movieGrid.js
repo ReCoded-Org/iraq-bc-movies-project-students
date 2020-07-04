@@ -12,7 +12,9 @@ const MovieGrid = props => {
               overview={movie.overview}
               popularity={movie.popularity}
               release_date={movie.release_date}
+              id={movie.id}
               key={index}
+              handleViewDetailClick={props.handleViewDetailClick}
             />
           );
         })}
@@ -21,3 +23,4 @@ const MovieGrid = props => {
   );
 };
 export default MovieGrid;
+
