@@ -5,9 +5,9 @@ function MoviesGrid(props) {
   return (
     <Container className="mt-5">
       <Row>
-        {props.movies.map((movies) => (
+        {props.movies.map((movie) => (
           <Col lg="6">
-            <MovieItem item={movies} />
+            <MovieItem item={movie} />
           </Col>
         ))}
       </Row>

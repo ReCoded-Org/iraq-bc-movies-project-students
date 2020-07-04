@@ -1,14 +1,13 @@
 import React from "react";
 import { Card, Badge } from "react-bootstrap";
 
-function MovieItem(props) {
-  const { item } = props;
-  const img = `https://image.tmdb.org/t/p/w500${item.poster_path}`;
+function MovieItem({ item }) {
+  const IMG_BASE_URL = `https://image.tmdb.org/t/p/w500`;
   console.log(item);
   return (
     <div>
       <Card style={{ width: "20rem", hieght: "10rem" }}>
-        <Card.Img variant="top" src={img} />
+        <Card.Img variant="top" src={IMG_BASE_URL + item.poster_path} />
         <Card.Body>
           <Card.Title>{item.title}</Card.Title>
           <Card.Text>{item.overview}</Card.Text>
