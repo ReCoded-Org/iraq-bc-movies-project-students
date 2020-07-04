@@ -5,11 +5,27 @@ This is a movie database project, where it shows movies, their casts, ratings, t
 This project uses The Movie DB API: `https://api.themoviedb.org/3`. It is up to
 you to use your Google and Postman skills to explore the API and understand the
 data.
+# Version 6
+Updated at July 4 2:30 pm
+### What to do in class
+We are going to decouple our state from our components, and provide the state to the whole application using the context provider.
+- Create a component called StateProvider.js
+- Move all the state from App.js into the StateProvider.js
+- Refactor the state to use a reducer and the useReducer hook instead of useState
+- Create a context and export it in StateProvider.js
+- Pass the state and dispatch to all children of the Provider
+- delete all your props that use the state, and use the useContext hook to read the state and dispatch.
+
+### Homework
+- Clean up your code, test it and submit a pull request. Your app needs to mostly use the context api to read and modify the state.
+- Tweak the styling for final version of the application
+- Try to implement the same logic using `redux` and `react-redux` libraries.
+- Check when will we need redux, and what pros does redux or any other state managment library offers.
 
 # Version 5
 Updated at July 1 5:00 pm
 ### What to do in class
-- build an actor info page and add it to the router (it should have its own path like `/people/${actor_id}`) so when the user clicks on any actor inside the movie page it should take him to that page and fetch the actor informations.
+- build an actor info page and add it to the router (it should have its own path like `/person/${actor_id}`) so when the user clicks on any actor inside the movie page it should take him to that page and fetch the actor informations.
 - when you launch your website fetch the popular movies first and then when you do any searching replace those popular movies with the ones you searched for.
 - add your search query to the url like `mydomain.com/search?query=deadpool` and if the user types this url in the browser it should show the main page and search for whatever in the `query` in the url and show the results for that.
 
