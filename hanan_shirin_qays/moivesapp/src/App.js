@@ -6,7 +6,7 @@ import MainPage from "./Components/MainPage";
 import MoviePage from "./Components/MoviePage";
 import Footer from "./Components/Footer";
 import ActorPage from "./Components/ActorPage";
-import {StateProvider} from "./Components/StateProvider";
+import {StateProvider} from "./StateProvider";
 
 import {
   BrowserRouter as Router,
@@ -31,33 +31,22 @@ function App() {
   // };
 
   return (
-    <Router>
+    <StateContext>
+    <HashRouter>
       <div className="page-container">
         <div className="content-wrap">
-          <Navbar
-            handleQuery={handleQuery}
-            handleMovies={handleMovies}
-            isLoading={isLoading}
-            setIsLoading={setIsLoading}
-          />
-
+          <Navbar/>
           <Switch>
             <Route exact path="/"component={MainPage} />
-              {/* <MainPage
-                isLoading={isLoading}
-                setIsLoading={setIsLoading}
-                movies={movies}
-                query={query}
-              />
-            </Route>
-            <Route path={process.env.PUBLIC_URL + "/Movie/:id"} component={MoviePage} />
+            <Route path={ "/Movie/:id"} component={MoviePage} />
+            <Route path={ "/person/:actor_id"} component={ActorPage} />
 
           </Switch>
-
         </div>
         <Footer />
       </div>
-    </Router>
+    </HashRouter>
+    </StateContext>
   );
 }
 export default App;
