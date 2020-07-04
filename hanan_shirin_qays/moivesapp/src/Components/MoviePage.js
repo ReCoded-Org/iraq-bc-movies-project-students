@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { constructUrl } from "./Api";
 import { Button, Badge, Container, Col, Row } from "react-bootstrap";
+import "../App.css";
+
 // import ReactPlayer from "react-player";
 
 export default function MoviePage(props) {
@@ -38,10 +40,9 @@ export default function MoviePage(props) {
 
     let res = await fetch(SEARCH_URL);
     let data = await res.json();
-    let actors = [];
-    data.cast.map((actor) => {
-      actors.push(actor.name);
-    });
+    let actors = data.cast;
+    console.log(actors);
+
     setActors(actors);
   }, [movie_id]);
 
@@ -56,25 +57,14 @@ export default function MoviePage(props) {
     <div
       style={{ backgroundImage: `url(${moiveImage})`, backgroundSize: "cover" }}
     >
-      {/* <img
-          alt="movieImage"
-          src={
-            movie.backdrop_path !== null
-              ? baseUrl + movie.backdrop_path
-              : nullPhoto
-          }
-        /> */}
       <Button variant="secondary">
-        <a
-          href="/iraq-bc-movies-project-students/"
-          style={{ color: "white", textDecoration: "none" }}
-        >
+        <a href="/" style={{ color: "white", textDecoration: "none" }}>
           Back
         </a>
       </Button>
       <Container>
         <Row>
-          <img className="col-4" alt="posterImage" src={posterImage} />
+          <div className="col-4"><img width="100%"alt="posterImage" src={posterImage} /></div>
           <div className="col-8 text-white">
             <h5>{movie.original_title}</h5>
 
@@ -95,19 +85,34 @@ export default function MoviePage(props) {
                 })
               : null}
             <div className=" text-white">
-              {actors.map((actor) => {
-                return <Badge style={{ marginLeft: "10px" }}>{actor}</Badge>;
+              {actors.slice(0, 9).map((actor) => {
+                return (
+                  <a href={`/#/people/${actor.id}`}>
+                    <Badge
+                      key={actor.id}
+                      style={{ marginLeft: "10px" }}
+                      className="align-middle">
+                      <span>
+                        <div className="rounded-circle overflow-hidden d-inline-block"
+                                                    height="50px"
+width="50px"                                                    >
+                          <img
+                            src={baseUrl + actor.profile_path}
+                            alt=""
+                            height="100%"
+                            width="100%"
+                            objectFit="cover"
+                          />
+                        </div>
+                        {actor.name}
+                      </span>
+                    </Badge>
+                  </a>
+                );
               })}
             </div>
           </div>
         </Row>
-
-        {/* <Container className={"mx-auto p-2"}>
-          <ReactPlayer className={"mx-auto"} url={trailers[0]} />
-        </Container> */}
-        {/* {trailers.map((video, index) => {
-          return         <ReactPlayer key={`haha-${index}`} url={video} /> ;
-        })} */}
       </Container>
     </div>
   );

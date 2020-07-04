@@ -10,7 +10,6 @@ export default function DropdownCategories(props) {
     fetch(SEARCH_URL_CATEGORIES)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.genres !== undefined)
           setCategories([{ id: 0, name: "All" }, ...data.genres]);
       })
@@ -18,7 +17,7 @@ export default function DropdownCategories(props) {
   }, [SEARCH_URL_CATEGORIES]);
 
   return (
-    <>
+    
       <Dropdown style={{ marginRight: "5px" }}>
         <Dropdown.Toggle variant="info" id="dropdown-basic">
           {props.category.name || "Categories"}
@@ -37,6 +36,6 @@ export default function DropdownCategories(props) {
             ))}
         </Dropdown.Menu>
       </Dropdown>
-    </>
+    
   );
 }

@@ -1,22 +1,21 @@
 import React from "react";
-import { Navbar, Nav } from "react-bootstrap";
+import { Navbar as NavBarBootstarp, Nav } from "react-bootstrap";
 import SearchBox from "./SearchBox";
 
-export default function Navbar1(props) {
+export default function Navbar(props) {
   return (
-    <div>
-      <Navbar bg="dark" expand="lg">
-        <Navbar.Brand
-          href="/iraq-bc-movies-project-students/"
+      <NavBarBootstarp bg="dark" expand="lg">
+        <NavBarBootstarp.Brand
+          href="/"
           style={{ color: "white" }}
         >
           React Movies App
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-Navbar-nav" />
-        <Navbar.Collapse id="basic-Navbar-nav">
+        </NavBarBootstarp.Brand>
+        <NavBarBootstarp.Toggle aria-controls="basic-Navbar-nav" />
+        <NavBarBootstarp.Collapse id="basic-Navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link
-              href="/iraq-bc-movies-project-students/"
+              href="/"
               style={{ color: "white" }}
             >
               Home
@@ -28,8 +27,7 @@ export default function Navbar1(props) {
             isLoading={props.isLoading}
             setIsLoading={props.setIsLoading}
           />
-        </Navbar.Collapse>
-      </Navbar>
-    </div>
+        </NavBarBootstarp.Collapse>
+      </NavBarBootstarp>
   );
 }
