@@ -15,7 +15,7 @@ function Movie(props) {
           <Card.Title>{props.title}</Card.Title>
 
           <Link to={`/${props.id}`}>
-            <Button variant="danger">ViewDetail</Button>
+            <Button variant="danger">View Detail</Button>
           </Link>
         </Card.Body>
       </Card>
