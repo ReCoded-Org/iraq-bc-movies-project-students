@@ -5,6 +5,22 @@ This is a movie database project, where it shows movies, their casts, ratings, t
 This project uses The Movie DB API: `https://api.themoviedb.org/3`. It is up to
 you to use your Google and Postman skills to explore the API and understand the
 data.
+# Version 6
+Updated at July 4 2:30 pm
+### What to do in class
+We are going to decouple our state from our components, and provide the state to the whole application using the context provider.
+- Create a component called StateProvider.js
+- Move all the state from App.js into the StateProvider.js
+- Refactor the state to use a reducer and the useReducer hook instead of useState
+- Create a context and export it in StateProvider.js
+- Pass the state and dispatch to all children of the Provider
+- delete all your props that use the state, and use the useContext hook to read the state and dispatch.
+
+### Homework
+- Clean up your code, test it and submit a pull request. Your app needs to mostly use the context api to read and modify the state.
+- Tweak the styling for final version of the application
+- Try to implement the same logic using `redux` and `react-redux` libraries.
+- Check when will we need redux, and what pros does redux or any other state managment library offers.
 
 # Version 5
 Updated at July 1 5:00 pm
