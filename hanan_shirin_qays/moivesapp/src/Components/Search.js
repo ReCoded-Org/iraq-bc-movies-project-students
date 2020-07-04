@@ -18,7 +18,7 @@ export default function Search(props) {
         <MainPage movies={movies}
         />
     </>
-    )
+    );
 }
-}
+
 /*window.location.assign();*/

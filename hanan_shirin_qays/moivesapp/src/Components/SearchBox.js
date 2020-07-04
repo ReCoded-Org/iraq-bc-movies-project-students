@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState,useContext, useEffect } from "react";
 import { Button, Form, FormControl } from "react-bootstrap";
 import Spinners from "./Spinner";
 import DropdownCategories from "./DropdownCategories";
 import { constructUrl } from "./Api";
 import { BrowserRouter, Link } from "react-router-dom";
+import { StateContext } from "../StateProvider";
 
 export default function SearchBox(props) {
   const [category, setCategory] = useState({});
+  const {movies} = useContext(StateContext);
 
   const changeCategory = (category) => {
     console.log(category);
@@ -25,7 +27,7 @@ export default function SearchBox(props) {
 
   useEffect(fetchMovies, [props.isLoading, category]);
   function fetchMovies() {
-    if (!props.isLoading) return;
+    // if (!props.isLoading) return;
     let SEARCH_URL;
     if (query !== "") {
       SEARCH_URL = constructUrl("search/movie", query);
@@ -36,13 +38,13 @@ export default function SearchBox(props) {
       .then((res) => res.json())
       .then((data) => {
         if (data.results !== undefined) {
-          let movies = data.results;
+          let moviess = data.results;
           if (category.id) {
-            movies = movies.filter((movie) =>
+            moviess = moviess.filter((movie) =>
               movie.genre_ids.includes(category.id)
             );
           }
-          props.handleMovies(movies);
+          movies[1](moviess);
         }
       })
       .catch((err) => console.log(err));

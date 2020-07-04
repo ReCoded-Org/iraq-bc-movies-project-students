@@ -31,7 +31,7 @@ function App() {
   // };
 
   return (
-    <StateContext>
+    <StateProvider>
     <HashRouter>
       <div className="page-container">
         <div className="content-wrap">
@@ -46,7 +46,7 @@ function App() {
         <Footer />
       </div>
     </HashRouter>
-    </StateContext>
+    </StateProvider>
   );
 }
 export default App;

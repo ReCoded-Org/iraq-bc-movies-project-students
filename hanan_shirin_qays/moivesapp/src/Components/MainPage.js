@@ -1,12 +1,14 @@
 import React,{useContext} from "react";
 import MoviesGrid from "./MoviesGrid";
-import {StateProvider} from "../StateProvider"; 
-function MainPage(props) {
-const {movies} = useContext(StateProvider);
+import {StateContext} from "../StateProvider"; 
+function MainPage() {
+  console.log(useContext(StateContext));
+
+const {movies} = useContext(StateContext);
 
   return (
     <React.Fragment>
-      {movies.movies.length > 0 && <MoviesGrid />}
+      {movies[0].length > 0 && <MoviesGrid />}
     </React.Fragment>
   );
 }
