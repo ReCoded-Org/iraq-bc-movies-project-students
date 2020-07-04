@@ -60,14 +60,13 @@ export default function SearchBox(props) {
         className="mr-sm-2"
         onChange={onChange}
       />
-      <BrowserRouter>
-        <Link to="/iraq-bc-movies-project-students/">
-          <Button variant="outline-light" type="submit">
-            Search
+
+      <Button variant="outline-light">
+        Search
         <span>
-              <Spinners isLoading={props.isLoading} />
-            </span>
-          </Button></Link></BrowserRouter>
+          <Spinners isLoading={props.isLoading} />
+        </span>
+      </Button>
     </Form>
   );
 }

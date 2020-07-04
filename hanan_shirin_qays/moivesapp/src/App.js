@@ -6,7 +6,7 @@ import MainPage from "./Components/MainPage";
 import MoviePage from "./Components/MoviePage";
 import Footer from "./Components/Footer";
 import "react-simple-flex-grid/lib/main.css";
-import {PATH_PREFIX} from './Components/Constants'
+import { PATH_PREFIX } from './Components/Constants'
 import {
   BrowserRouter as Router,
   Switch,
@@ -29,15 +29,16 @@ function App() {
   };
 
   return (
-    <div className="page-container">
-      <div className="content-wrap">
-        <Navbar
-          handleQuery={handleQuery}
-          handleMovies={handleMovies}
-          isLoading={isLoading}
-          setIsLoading={setIsLoading}
-        />
-        <Router>
+    <Router>
+      <div className="page-container">
+        <div className="content-wrap">
+          <Navbar
+            handleQuery={handleQuery}
+            handleMovies={handleMovies}
+            isLoading={isLoading}
+            setIsLoading={setIsLoading}
+          />
+
           <Switch>
             {/* <Route path="/iraq-bc-movies-project-students">
               <Redirect to="/"></Redirect>
@@ -54,13 +55,14 @@ function App() {
                 query={query}
               />
             </Route>
-            <Route  path={process.env.PUBLIC_URL +"/Movie/:id"} component={MoviePage} />
-           
+            <Route path={process.env.PUBLIC_URL + "/Movie/:id"} component={MoviePage} />
+
           </Switch>
-        </Router>
+
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </Router>
   );
 }
 export default App;
