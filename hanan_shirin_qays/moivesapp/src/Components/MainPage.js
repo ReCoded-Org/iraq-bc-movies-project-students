@@ -4,11 +4,11 @@ import {StateContext} from "../StateProvider";
 function MainPage() {
   console.log(useContext(StateContext));
 
-const {movies} = useContext(StateContext);
+const [state] = useContext(StateContext);
 
   return (
     <React.Fragment>
-      {movies[0].length > 0 && <MoviesGrid />}
+      {state.movies.length > 0 && <MoviesGrid />}
     </React.Fragment>
   );
 }

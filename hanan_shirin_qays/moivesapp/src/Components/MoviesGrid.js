@@ -5,12 +5,12 @@ import { Row, Col } from "react-bootstrap";
 import {StateContext} from "../StateProvider"; 
 
 export default function MoviesGrid(props) {
-  const {movies} = useContext(StateContext);
+  const [state] = useContext(StateContext);
 
   return (
     <Container>
       <Row md={4} lg={3} xs={12}>
-        {movies[0].map((movie) => (
+        {state.movies.map((movie) => (
           <Col key={movie.id}>
             <MovieItem movie={movie} />
           </Col>

@@ -1,71 +1,59 @@
-import React, { useState,useReducer, createContext } from "react";
-
+import React, { useState, useReducer, createContext } from "react";
 
 export const StateContext = createContext();
 
 export const StateProvider = (props) => {
-    // //App States
+  // //App States
 
-    const [isLoading, setIsLoading] = useState(true);
-    const [query, setQuery] = useState("");
-    const [movies, setMovies] = useState([]);
-    //Search Box
-    const [category, setCategory] = useState({});
+  // const [isLoading, setIsLoading] = useState(true);
+  // const [query, setQuery] = useState("");
+  // const [movies, setMovies] = useState([]);
+  // //Search Box
+  // const [category, setCategory] = useState({});
 
-    const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-const value =   {
-    isLoading:[isLoading, setIsLoading], 
-    query:[query, setQuery], 
-    movies:[movies, setMovies],
-     category:[category, setCategory],
+  // const value =   {
+  //     isLoading,
+  //     setIsLoading,
+  //     query,
+  //     setQuery,
+  //     movies,
+  //     setMovies,
+  //      category,
+  //      setCategory,
+  // };
+  return (
+    <StateContext.Provider
+      value={
+        // value
+        [state, dispatch]
+      }
+    >
+      {props.children}
+    </StateContext.Provider>
+  );
 };
-    return (
-        <StateContext.Provider value={
-            value
-            // [state, dispatch]
-        }
-         >
-            {props.children}
-        </StateContext.Provider>
-    )
-}
-
-
-
 
 const initialState = {
-    isLoading: false,
-    query:"",
-    movies:[],
-    category:{}
+  isLoading: false,
+  query: "",
+  movies: [],
+  category: {},
 };
 
 function reducer(state, action) {
-
-   
   switch (action.type) {
-    case 'setLoading':
-      return {...state,isLoading:action.payload};
-    case 'setQuery':
-      return {...state,query:action.payload};
-      case 'setMovies':
-        return {...state,movies:action.payload};
-        case 'setCategory':
-            return {...state,category:action.payload};
+    case "setLoading":
+      return { ...state, isLoading: action.payload };
+    case "setQuery":
+      return { ...state, query: action.payload };
+    case "setMovies":
+      return { ...state, movies: action.payload };
+    case "setCategory":
+      return { ...state, category: action.payload };
     default:
-      throw new Error();
+      //   throw new Error();
+      return { ...state };
   }
 }
-
-// function Counter() {
-//   const [state, dispatch] = useReducer(reducer, initialState);
-//   dispatch({type: 'reset', payload: initialCount})}
-//   return (
-//     <>
-//       Count: {state.count}
-//       <button onClick={() => dispatch({type: 'decrement'})}>-</button>
-//       <button onClick={() => dispatch({type: 'increment'})}>+</button>
-//     </>
-//   );
-// }

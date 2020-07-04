@@ -8,7 +8,7 @@ import { StateContext } from "../StateProvider";
 
 export default function SearchBox(props) {
   const [category, setCategory] = useState({});
-  const {movies} = useContext(StateContext);
+  const [state,dispatch] = useContext(StateContext);
 
   const changeCategory = (category) => {
     console.log(category);
@@ -44,7 +44,13 @@ export default function SearchBox(props) {
               movie.genre_ids.includes(category.id)
             );
           }
-          movies[1](moviess);
+         const  action={
+            type:"setMovies"
+          ,
+          payload:moviess
+          ,
+          }
+          dispatch(action);
         }
       })
       .catch((err) => console.log(err));
