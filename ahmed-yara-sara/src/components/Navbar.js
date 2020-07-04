@@ -5,7 +5,6 @@ import Dropdown from "./Dropdown";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function movieNavbar(props) {
-  // const {handleMovies, handleMovies };
   const handleMovies = props.handleMovies;
 
   return (

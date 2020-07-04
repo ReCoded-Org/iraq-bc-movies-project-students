@@ -1,7 +1,6 @@
 import React from "react";
-import "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
 import MovieItem from "./MovieItem";
+
 export default function MovieGrid(props) {
   const movies = props.movies;
 
