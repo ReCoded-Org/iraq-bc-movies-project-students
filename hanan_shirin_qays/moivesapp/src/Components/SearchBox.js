@@ -3,6 +3,7 @@ import { Button, Form, FormControl } from "react-bootstrap";
 import Spinners from "./Spinner";
 import DropdownCategories from "./DropdownCategories";
 import { constructUrl } from "./Api";
+import { BrowserRouter, Link } from "react-router-dom";
 
 export default function SearchBox(props) {
   const [category, setCategory] = useState({});
@@ -56,7 +57,8 @@ export default function SearchBox(props) {
         className="mr-sm-2"
         onChange={onChange}
       />
-      <Button variant="outline-light" type="submit">
+
+      <Button variant="outline-light">
         Search
         <span>
           <Spinners isLoading={props.isLoading} />

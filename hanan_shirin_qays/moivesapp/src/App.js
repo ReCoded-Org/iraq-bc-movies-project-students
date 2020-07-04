@@ -31,16 +31,16 @@ function App() {
   // };
 
   return (
-    <StateProvider>
-    <div className="page-container">
-      <div className="content-wrap">
-        <Navbar
-          // handleQuery={handleQuery}
-          // handleMovies={handleMovies}
-          // isLoading={isLoading}
-          // setIsLoading={setIsLoading}
-        />
-        <HashRouter>
+    <Router>
+      <div className="page-container">
+        <div className="content-wrap">
+          <Navbar
+            handleQuery={handleQuery}
+            handleMovies={handleMovies}
+            isLoading={isLoading}
+            setIsLoading={setIsLoading}
+          />
+
           <Switch>
             <Route exact path="/"component={MainPage} />
               {/* <MainPage
@@ -49,18 +49,15 @@ function App() {
                 movies={movies}
                 query={query}
               />
-            </Route> */}
-            <Route
-              path="/Movie/:id"
-              component={MoviePage}
-            />
-            <Route  path={"/people/:actor_id"} component={ActorPage} />
+            </Route>
+            <Route path={process.env.PUBLIC_URL + "/Movie/:id"} component={MoviePage} />
+
           </Switch>
-        </HashRouter>
+
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
-    </StateProvider>
+    </Router>
   );
 }
 export default App;
