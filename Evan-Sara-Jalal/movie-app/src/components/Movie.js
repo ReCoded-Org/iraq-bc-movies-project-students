@@ -13,15 +13,9 @@ function Movie(props) {
         />
         <Card.Body>
           <Card.Title>{props.title}</Card.Title>
-          {/* <ViewDetail
-            image={props.image}
-            title={props.title}
-            overview={props.overview}
-            release_date={props.release_date}
-            popularity={props.popularity}
-          /> */}
+
           <Link to={`/${props.id}`}>
-            <Button variant='danger'>ViewDetail</Button>
+            <Button variant="danger">ViewDetail</Button>
           </Link>
         </Card.Body>
       </Card>

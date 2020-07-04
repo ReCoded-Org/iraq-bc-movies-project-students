@@ -23,6 +23,7 @@ function MoviePage() {
 
   useEffect(() => {
     console.log(location);
+    console.log(history );
 
     fetchMovie();
     fetchVideos();
@@ -106,7 +107,7 @@ function MoviePage() {
                 return (
                   <div className="embed-responsive embed-responsive-16by9 mb-4">
                     <iframe
-                      class="embed-responsive-item"
+                      className="embed-responsive-item"
                       src={`https://www.youtube.com/embed/${trailer.key}`}
                       allowFullScreen
                       key={trailer.id}

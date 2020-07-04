@@ -7,13 +7,15 @@ import ActorInfo from "./components/ActorInfo";
 import Footer from "./components/Footer";
 import { useState, useEffect } from "react";
 import MoviePage from "./components/moviePage";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route,Redirect } from "react-router-dom";
+import  {useHistory} from 'react-router-dom'
 
 function App() {
   const [movieList, setMovieList] = useState([]);
   const [searchedTerm, setSearchedTerm] = useState("");
   const [genreList, setGenreList] = useState([]);
   const [genreId, setGenreId] = useState(28);
+  const history = useHistory()
 
   const TMDB_BASE_URL = "https://api.themoviedb.org/3";
   const constructUrl = (query) => {
@@ -54,9 +56,6 @@ function App() {
     console.log(genreId);
   }
   function handleSubmit(e) {
-    //e.preventDefault();
-    // console.log(e.target[0].value);
-    // console.log("it is working ");
 
     fetch(constructUrl(searchedTerm))
       .then((data) => data.json())
@@ -66,9 +65,11 @@ function App() {
           movie.genre_ids.includes(parseInt(genreId))
         );
         setMovieList(filtered);
-        console.log(movieList[0]);
-        // console.log(searchedTerm);
-      });
+       
+      
+      })
+
+
   }
 
   function handleChange(e) {
@@ -94,6 +95,8 @@ function App() {
             </Route>
             <Route path="/:id" exact component={MoviePage} />
             <Route path="/person/:actor_id" component={ActorInfo} />
+            <Route render={()=>{return <h1>Page not found (404)</h1>}} />
+            <Redirect to=''/>
           </Switch>
         </div>
         <Footer />
