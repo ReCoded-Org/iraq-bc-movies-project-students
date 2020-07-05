@@ -16,7 +16,7 @@ const initialState = {
   isLoading: true,
   query: "",
   movies: [],
-  // category: {},
+  category: {},
 };
 
 function reducer(state, action) {
@@ -27,8 +27,8 @@ function reducer(state, action) {
       return { ...state, query: action.payload };
     case "setMovies":
       return { ...state, movies: action.payload };
-    // case "setCategory":
-    //   return { ...state, category: action.payload };
+    case "setCategory":
+      return { ...state, category: action.payload };
     default:
       return { ...state };
   }

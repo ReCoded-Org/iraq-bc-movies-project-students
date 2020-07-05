@@ -29,6 +29,7 @@ function App() {
               <Route path={"/Movie/:id"} component={MoviePage} />
               <Route path={"/person/:actor_id"} component={ActorPage} />
               <Route exact path="/" component={MainPage} />
+              <Route path="/search" component={MainPage} />
             </Switch>
           </div>
           <Footer />

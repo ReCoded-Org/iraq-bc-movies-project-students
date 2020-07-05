@@ -45,13 +45,16 @@ export default function SearchBox() {
 
     if (!match.isExact) {
       history.push({
-        pathname: "/",
+        pathname: "/search",
         search: "?query=" + query,
+        state: {
+          query: query,
+        },
       });
     }
   };
 
-  useEffect(fetchMovies, [category]);
+  useEffect(() => fetchMovies(query), [category]);
   useEffect(() => {
     if (location.search != "") {
       fetchMovies(parts2[1]);
