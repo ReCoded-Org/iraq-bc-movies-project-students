@@ -17,7 +17,7 @@ function ActorInfo() {
     fetch(
       `https://api.themoviedb.org/3/person/${
         params.actor_id
-      }?api_key=7a757097cf4698b75ed2848485f49571&language=en-US&append_to_response=${
+      }?api_key=801a0cb3e217f703f966a9186ba74310&language=en-US&append_to_response=${
         params.actor_id
       }`
     )
@@ -28,7 +28,7 @@ function ActorInfo() {
   const fetchImages = () => {
     fetch(`https://api.themoviedb.org/3/person/${
       params.actor_id
-    }/images?api_key=7a757097cf4698b75ed2848485f49571
+    }/images?api_key=801a0cb3e217f703f966a9186ba74310
     `)
       .then(resp => resp.json())
       .then(resp => setImage(resp.profiles[0]));

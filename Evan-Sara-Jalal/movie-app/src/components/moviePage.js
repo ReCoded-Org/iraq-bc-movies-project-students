@@ -32,7 +32,7 @@ function MoviePage() {
 
   const fetchMovie = () => {
     fetch(
-      `https://api.themoviedb.org/3/movie/${params.id}?api_key=7a757097cf4698b75ed2848485f49571&language=en-US`
+      `https://api.themoviedb.org/3/movie/${params.id}?api_key=801a0cb3e217f703f966a9186ba74310&language=en-US`
     )
       .then((resp) => resp.json())
       .then((resp) => setMovie(resp));
@@ -40,7 +40,7 @@ function MoviePage() {
 
   const fetchVideos = () => {
     fetch(
-      `https://api.themoviedb.org/3/movie/${params.id}/videos?api_key=7a757097cf4698b75ed2848485f49571&language=en-US`
+      `https://api.themoviedb.org/3/movie/${params.id}/videos?api_key=801a0cb3e217f703f966a9186ba74310&language=en-US`
     )
       .then((resp) => resp.json())
       .then((resp) => setTrailers(resp.results));
@@ -48,7 +48,7 @@ function MoviePage() {
 
   const fetchCredits = () => {
     fetch(
-      `https://api.themoviedb.org/3/movie/${params.id}/credits?api_key=7a757097cf4698b75ed2848485f49571`
+      `https://api.themoviedb.org/3/movie/${params.id}/credits?api_key=801a0cb3e217f703f966a9186ba74310`
     )
       .then((resp) => resp.json())
       .then((resp) => {
