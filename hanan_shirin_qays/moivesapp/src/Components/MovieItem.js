@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import ReactStars from "react-rating-stars-component";
+import { Link } from "react-router-dom";
 
 export default function MovieItem(props) {
   const baseUrl = "https://image.tmdb.org/t/p/w500/";
@@ -8,7 +9,7 @@ export default function MovieItem(props) {
     "https://image.tmdb.org/t/p/w500/wwemzKWzjKYJFfCeiB57q3r4Bcm.png";
 
   return (
-    <a href={`/#/Movie/${props.movie.id}`}>
+    <Link to={`/Movie/${props.movie.id}`}>
       <Card key={props.movie.id} style={{ width: "100%" }}>
         <div className="card image">
           <Card.Img
@@ -44,6 +45,6 @@ export default function MovieItem(props) {
           </div>
         </div>
       </Card>
-    </a>
+    </Link>
   );
 }

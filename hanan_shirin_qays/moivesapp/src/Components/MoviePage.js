@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { constructUrl } from "./Api";
 import { Button, Badge, Container, Col, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "../App.css";
-
-// import ReactPlayer from "react-player";
 
 export default function MoviePage(props) {
   const [movie, setMovie] = useState("");
@@ -17,7 +16,6 @@ export default function MoviePage(props) {
     SEARCH_URL = constructUrl(`movie/${movie_id}`);
     let res = await fetch(SEARCH_URL);
     let data = await res.json();
-    console.log(data);
 
     setMovie(data);
   }, [movie_id]);
@@ -26,11 +24,12 @@ export default function MoviePage(props) {
     SEARCH_URL = constructUrl(`movie/${movie_id}/videos`);
     let res = await fetch(SEARCH_URL);
     let data = await res.json();
+
     const videos = [];
+
     data.results.map((trailer) => {
       videos.push(`https://www.youtube.com/watch?v=${trailer.key}`);
     });
-    console.log(videos);
 
     setTrailers(videos);
   }, [movie_id]);
@@ -41,7 +40,6 @@ export default function MoviePage(props) {
     let res = await fetch(SEARCH_URL);
     let data = await res.json();
     let actors = data.cast;
-    console.log(actors);
 
     setActors(actors);
   }, [movie_id]);
@@ -58,13 +56,15 @@ export default function MoviePage(props) {
       style={{ backgroundImage: `url(${moiveImage})`, backgroundSize: "cover" }}
     >
       <Button variant="secondary">
-        <a href="/" style={{ color: "white", textDecoration: "none" }}>
+        <Link to="/" style={{ color: "white", textDecoration: "none" }}>
           Back
-        </a>
+        </Link>
       </Button>
       <Container>
         <Row>
-          <div className="col-4"><img width="100%"alt="posterImage" src={posterImage} /></div>
+          <div className="col-4">
+            <img width="100%" alt="posterImage" src={posterImage} />
+          </div>
           <div className="col-8 text-white">
             <h5>{movie.original_title}</h5>
 
@@ -87,15 +87,18 @@ export default function MoviePage(props) {
             <div className=" text-white">
               {actors.slice(0, 9).map((actor) => {
                 return (
-                  <a href={`/#/people/${actor.id}`}>
+                  <Link to={`/person/${actor.id}`}>
                     <Badge
                       key={actor.id}
                       style={{ marginLeft: "10px" }}
-                      className="align-middle">
+                      className="align-middle"
+                    >
                       <span>
-                        <div className="rounded-circle overflow-hidden d-inline-block"
-                                                    height="50px"
-width="50px"                                                    >
+                        <div
+                          className="rounded-circle overflow-hidden d-inline-block"
+                          height="50px"
+                          width="50px"
+                        >
                           <img
                             src={baseUrl + actor.profile_path}
                             alt=""
@@ -107,7 +110,7 @@ width="50px"                                                    >
                         {actor.name}
                       </span>
                     </Badge>
-                  </a>
+                  </Link>
                 );
               })}
             </div>
