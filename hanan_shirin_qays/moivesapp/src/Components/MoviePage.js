@@ -21,27 +21,22 @@ export default function MoviePage(props) {
       let res = await fetch(SEARCH_URL);
       let data = await res.json();
 
-      setMovie(data);
 
       SEARCH_URL = constructUrl(`movie/${movie_id}/videos`);
       let resVideos = await fetch(SEARCH_URL);
       let dataVideos = await resVideos.json();
 
       const videos = [];
-
-      dataVideos.results.map((trailer) => {
-        videos.push(`https://www.youtube.com/watch?v=${trailer.key}`);
-      });
-
-      setTrailers(videos);
-
       SEARCH_URL = constructUrl(`movie/${movie_id}/credits`);
-
       let resActors = await fetch(SEARCH_URL);
       let dataActors = await resActors.json();
       let actors = dataActors.cast;
 
+      setTrailers(dataVideos.results);
+
       setActors(actors);
+      setMovie(data);
+
     }
     fetchData();
   }, [movie_id]);
@@ -58,10 +53,10 @@ export default function MoviePage(props) {
     : nullPhoto;
   return (
     <div
+    className="flex-grow-1 "
       style={{
         backgroundImage: `url(${moiveImage})`,
         backgroundSize: "cover",
-        height: "88vh",
       }}
     >
       <Button variant="secondary" onClick={() => history.goBack()}>
@@ -97,7 +92,7 @@ export default function MoviePage(props) {
                   return (
                     <Link key={actor.id} to={`/person/${actor.id}`}>
                       <Badge
-                        key={actor.id}
+                        key={"1"+actor.id}
                         style={{ marginLeft: "10px" }}
                         className="align-middle"
                       >
@@ -123,7 +118,11 @@ export default function MoviePage(props) {
               </div>
             </div>
           </Row>
+          <div key={trailers[0].id} className="embed-responsive embed-responsive-16by9 my-4">
+        <iframe className="embed-responsive-item" src={`https://www.youtube.com/embed/${trailers[0].key}?rel=0`} allowFullScreen></iframe>
+      </div>
         </Container>
+      
       )}
       {!movie.id && <Spinner animation="border" variant="warning" size="sm" />}
     </div>

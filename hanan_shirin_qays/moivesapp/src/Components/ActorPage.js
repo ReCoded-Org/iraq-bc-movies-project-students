@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { constructUrl } from "./Api";
 import { Button, Container, Row, Spinner } from "react-bootstrap";
-import { Link } from "react-router-dom";
-// import ReactPlayer from "react-player";
 import { useHistory } from "react-router-dom";
 
 export default function ActorPage(props) {
@@ -25,7 +23,8 @@ export default function ActorPage(props) {
     : nullPhoto;
 
   return (
-    <div style={{ backgroundColor: "black", height: "88vh" }}>
+    <div
+    className="flex-grow-1 bg-dark ">
       <Button variant="secondary" onClick={() => history.goBack()}>
         Back
       </Button>

@@ -14,10 +14,9 @@ function App() {
   return (
     <StateProvider>
       <HashRouter>
-        <Navbar />
-        <div>
-          {/* <div className="page-container">
-          <div className="content-wrap"> */}
+        <div className="d-flex  flex-column vh-100 align-items-stretch p-0 m-0">
+          <Navbar />
+
           <Switch>
             <Route path="/iraq-bc-movies-project-students">
               <Redirect to="/" />
@@ -27,10 +26,9 @@ function App() {
             <Route exact path="/" component={MainPage} />
             <Route path="/search" component={MainPage} />
           </Switch>
+
+          <Footer />
         </div>
-        {/* </div>
-        </div> */}
-        <Footer />
       </HashRouter>
     </StateProvider>
   );

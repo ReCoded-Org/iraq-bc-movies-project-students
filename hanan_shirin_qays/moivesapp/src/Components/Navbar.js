@@ -7,7 +7,7 @@ Link
 
 export default function Navbar() {
   return (
-    <NavBarBootstarp bg="dark" expand="lg">
+    <NavBarBootstarp bg="dark" expand="lg" className="flex-shrink-1">
       <Link to="/" >
       <NavBarBootstarp.Brand style={{ color: "white" }}>
 
