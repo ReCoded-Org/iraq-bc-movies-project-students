@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { constructUrl } from "./Api";
-import { Button, Badge, Container, Col, Row } from "react-bootstrap";
+import { Button, Badge, Container, Row ,Spinner} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../App.css";
+import { useHistory } from 'react-router-dom';
+
 
 export default function MoviePage(props) {
+  const history = useHistory();
   const [movie, setMovie] = useState("");
   const [trailers, setTrailers] = useState([]);
   const [actors, setActors] = useState([]);
@@ -12,55 +15,56 @@ export default function MoviePage(props) {
   let movie_id = props.match.params.id;
   let SEARCH_URL;
 
-  useEffect(async () => {
-    SEARCH_URL = constructUrl(`movie/${movie_id}`);
-    let res = await fetch(SEARCH_URL);
-    let data = await res.json();
+  useEffect(() => {
+    async function fetchData() {
+      // You can await here
+      SEARCH_URL = constructUrl(`movie/${movie_id}`);
+      let res = await fetch(SEARCH_URL);
+      let data = await res.json();
 
-    setMovie(data);
-  }, [movie_id]);
+      setMovie(data);
 
-  useEffect(async () => {
-    SEARCH_URL = constructUrl(`movie/${movie_id}/videos`);
-    let res = await fetch(SEARCH_URL);
-    let data = await res.json();
+      SEARCH_URL = constructUrl(`movie/${movie_id}/videos`);
+      let resVideos = await fetch(SEARCH_URL);
+      let dataVideos = await resVideos.json();
 
-    const videos = [];
+      const videos = [];
 
-    data.results.map((trailer) => {
-      videos.push(`https://www.youtube.com/watch?v=${trailer.key}`);
-    });
+      dataVideos.results.map((trailer) => {
+        videos.push(`https://www.youtube.com/watch?v=${trailer.key}`);
+      });
 
-    setTrailers(videos);
-  }, [movie_id]);
+      setTrailers(videos);
 
-  useEffect(async () => {
-    SEARCH_URL = constructUrl(`movie/${movie_id}/credits`);
+      SEARCH_URL = constructUrl(`movie/${movie_id}/credits`);
 
-    let res = await fetch(SEARCH_URL);
-    let data = await res.json();
-    let actors = data.cast;
+      let resActors = await fetch(SEARCH_URL);
+      let dataActors = await resActors.json();
+      let actors = dataActors.cast;
 
-    setActors(actors);
+      setActors(actors);
+    }
+    fetchData();
+
   }, [movie_id]);
 
   const baseUrl = "https://image.tmdb.org/t/p/w500/";
   const nullPhoto =
     "https://image.tmdb.org/t/p/w500/wwemzKWzjKYJFfCeiB57q3r4Bcm.png";
+
   const moiveImage =
-    movie.backdrop_path !== null ? baseUrl + movie.backdrop_path : nullPhoto;
+    movie.backdrop_path  ? baseUrl + movie.backdrop_path : nullPhoto;
   const posterImage =
-    movie.poster_path !== null ? baseUrl + movie.poster_path : nullPhoto;
+    movie.poster_path ? baseUrl + movie.poster_path : nullPhoto;
   return (
     <div
       style={{ backgroundImage: `url(${moiveImage})`, backgroundSize: "cover" }}
     >
-      <Button variant="secondary">
-        <Link to="/" style={{ color: "white", textDecoration: "none" }}>
+
+      <Button variant="secondary" onClick={()=>history.goBack() }>
           Back
-        </Link>
       </Button>
-      <Container>
+      {movie.id&&<Container>
         <Row>
           <div className="col-4">
             <img width="100%" alt="posterImage" src={posterImage} />
@@ -87,7 +91,7 @@ export default function MoviePage(props) {
             <div className=" text-white">
               {actors.slice(0, 9).map((actor) => {
                 return (
-                  <Link to={`/person/${actor.id}`}>
+                  <Link key={actor.id} to={`/person/${actor.id}`}>
                     <Badge
                       key={actor.id}
                       style={{ marginLeft: "10px" }}
@@ -102,12 +106,11 @@ export default function MoviePage(props) {
                           <img
                             src={baseUrl + actor.profile_path}
                             alt=""
-                            height="100%"
-                            width="100%"
-                            objectFit="cover"
+                            width="50px"
+                            objectfit="cover"
                           />
                         </div>
-                        {actor.name}
+                        <span>{actor.name}</span>
                       </span>
                     </Badge>
                   </Link>
@@ -116,7 +119,9 @@ export default function MoviePage(props) {
             </div>
           </div>
         </Row>
-      </Container>
+      </Container>}
+      {!movie.id && <Spinner animation="border" variant="warning" size="sm" />}
+
     </div>
   );
 }

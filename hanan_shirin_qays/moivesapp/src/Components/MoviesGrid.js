@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import { Row, Col } from "react-bootstrap";
 import {StateContext} from "../StateProvider"; 
 
-export default function MoviesGrid(props) {
+export default function MoviesGrid() {
   const [state] = useContext(StateContext);
 
   return (

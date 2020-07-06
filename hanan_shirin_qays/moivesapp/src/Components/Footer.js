@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Footer() {
   return (
-    <footer className={" text-light text-center bg-secondary"}>
+    <footer className={"text-light text-center bg-secondary"}>
       <small style={{ marginRight: "20px" }}>Developed by </small>
       <a href="https://github.com/7ananDlshad" style={{ color: "white" }}>
         <FontAwesomeIcon icon={faGithub} />

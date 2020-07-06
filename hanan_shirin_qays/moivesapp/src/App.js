@@ -9,32 +9,35 @@ import ActorPage from "./Components/ActorPage";
 import { StateProvider } from "./StateProvider";
 
 import {
-  BrowserRouter as Router,
   Route,
   Redirect,
   Switch,
+  HashRouter
 } from "react-router-dom";
 
 function App() {
   return (
     <StateProvider>
-      <Router>
+      <HashRouter>
+      <Navbar />
+<div >
         <div className="page-container">
           <div className="content-wrap">
-            <Navbar />
             <Switch>
               <Route path="/iraq-bc-movies-project-students">
                 <Redirect to="/" />
               </Route>
               <Route path={"/Movie/:id"} component={MoviePage} />
-              <Route path={"/person/:actor_id"} component={ActorPage} />
+              <Route path={"/person/:actorId"} component={ActorPage} />
               <Route exact path="/" component={MainPage} />
               <Route path="/search" component={MainPage} />
             </Switch>
           </div>
-          <Footer />
         </div>
-      </Router>
+        </div>
+        <Footer />
+
+      </HashRouter>
     </StateProvider>
   );
 }
