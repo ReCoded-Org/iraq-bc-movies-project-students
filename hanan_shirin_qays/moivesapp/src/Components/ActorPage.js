@@ -3,8 +3,7 @@ import { constructUrl } from "./Api";
 import { Button, Container, Row, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 // import ReactPlayer from "react-player";
-import { useHistory } from 'react-router-dom';
-
+import { useHistory } from "react-router-dom";
 
 export default function ActorPage(props) {
   let actorId = props.match.params.actorId;
@@ -20,16 +19,15 @@ export default function ActorPage(props) {
   const baseUrl = "https://image.tmdb.org/t/p/w500/";
   const nullPhoto =
     "https://image.tmdb.org/t/p/w500/wwemzKWzjKYJFfCeiB57q3r4Bcm.png";
- 
-  const profileImage =
-    person.profile_path ? baseUrl + person.profile_path : nullPhoto;
- 
+
+  const profileImage = person.profile_path
+    ? baseUrl + person.profile_path
+    : nullPhoto;
 
   return (
-    <div style={{ backgroundColor: "black" }}>
-    
-    <Button variant="secondary" onClick={()=>history.goBack() }>
-          Back
+    <div style={{ backgroundColor: "black", height: "88vh" }}>
+      <Button variant="secondary" onClick={() => history.goBack()}>
+        Back
       </Button>
       {person.id && (
         <Container>
@@ -41,7 +39,7 @@ export default function ActorPage(props) {
               <h5>{person.name}</h5>
 
               <h5>{person.birthday}</h5>
-              <h5>{person.biography}</h5>
+              <p>{person.biography}</p>
               <h5>{person.place_of_birth}</h5>
             </div>
           </Row>
