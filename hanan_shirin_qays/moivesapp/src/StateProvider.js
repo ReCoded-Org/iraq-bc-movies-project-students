@@ -14,22 +14,17 @@ export const StateProvider = (props) => {
 
 const initialState = {
   isLoading: true,
-  query: "",
   movies: [],
-  category: {},
 };
 
 function reducer(state, action) {
   switch (action.type) {
     case "setLoading":
       return { ...state, isLoading: action.payload };
-    case "setQuery":
-      return { ...state, query: action.payload };
     case "setMovies":
-      return { ...state, movies: action.payload };
-    case "setCategory":
-      return { ...state, category: action.payload };
+      state.movies=action.payload;
+      return state  ;
     default:
-      return { ...state };
+      return state ;
   }
 }

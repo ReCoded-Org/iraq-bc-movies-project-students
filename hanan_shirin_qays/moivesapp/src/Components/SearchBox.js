@@ -9,6 +9,7 @@ export default function SearchBox() {
   const [state, dispatch] = useContext(StateContext);
   const history = useHistory();
   const location = useLocation();
+
   const searchParams = new URLSearchParams(location.search);
   const searchQuery=searchParams.has('query')? searchParams.get('query'):"";
   const categoryId = searchParams.has('categoryId')?parseInt( searchParams.get('categoryId')):0;
@@ -29,11 +30,10 @@ export default function SearchBox() {
 
   const onSubmit = (event) => {
     event.preventDefault();
+    dispatch({ type: "setMovies", payload: [] });
 
     dispatch({ type: "setLoading", payload: true });
-    dispatch({ type: "setQuery", payload: query });
 
-    fetchMovies(query);
 
       history.push({
         pathname: "/search",
@@ -65,9 +65,12 @@ export default function SearchBox() {
             movies = movies.filter((movie) => movie.genre_ids.includes(category.id)
             );
           }
+          console.log(movies);
+          
           dispatch({ type: "setMovies", payload: movies });
-          dispatch({ type: "setLoading", payload: false });
         }
+        dispatch({ type: "setLoading", payload: false });
+
       })
 
       .catch((err) => console.log(err));
