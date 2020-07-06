@@ -3,7 +3,7 @@ import { Button, Form, FormControl, Spinner } from "react-bootstrap";
 import DropdownCategories from "./DropdownCategories";
 import { constructUrl } from "./Api";
 import { StateContext } from "../StateProvider";
-import { useRouteMatch, useHistory, useLocation } from "react-router-dom";
+import {  useHistory, useLocation } from "react-router-dom";
 
 export default function SearchBox() {
   const [state, dispatch] = useContext(StateContext);
