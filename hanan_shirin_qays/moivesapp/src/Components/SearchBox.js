@@ -65,7 +65,6 @@ export default function SearchBox() {
             movies = movies.filter((movie) => movie.genre_ids.includes(category.id)
             );
           }
-          console.log(movies);
           
           dispatch({ type: "setMovies", payload: movies });
         }

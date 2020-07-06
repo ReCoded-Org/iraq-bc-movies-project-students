@@ -24,13 +24,10 @@ function App() {
         <div className="page-container">
           <div className="content-wrap">
             <Switch>
-              <Route path="/iraq-bc-movies-project-students">
-                <Redirect to="/" />
-              </Route>
-              <Route path={"/Movie/:id"} component={MoviePage} />
-              <Route path={"/person/:actorId"} component={ActorPage} />
-              <Route exact path="/" component={MainPage} />
-              <Route path="/search" component={MainPage} />
+              <Route path={"/iraq-bc-movies-project-students/Movie/:id"} component={MoviePage} />
+              <Route path={"/iraq-bc-movies-project-students/person/:actorId"} component={ActorPage} />
+              <Route exact path="/iraq-bc-movies-project-students/" component={MainPage} />
+              <Route path="/iraq-bc-movies-project-students/search" component={MainPage} />
             </Switch>
           </div>
         </div>
