@@ -1,0 +1,32 @@
+.actor-name {
+  font-size: 2.8rem;
+}
+
+.actor-badge {
+  font-size: 0.88rem;
+}
+
+.actor-image {
+  border-radius: 15px;
+  width: 80%;
+  height: auto;
+  margin: 6% auto;
+}
+
+.actor-info-container,
+.actor-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.actor-info-container {
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.actor-error-page {
+  justify-content: center;
+  height: 80vh;
+  width: 100vw;
+}
