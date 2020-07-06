@@ -44,7 +44,7 @@ export default function SearchBox() {
   };
 
 
-  useEffect(() => fetchMovies(searchQuery), [searchQuery]);
+  useEffect(() => fetchMovies(searchQuery), [searchQuery,categoryId]);
 
 
   function fetchMovies(query = "") {
